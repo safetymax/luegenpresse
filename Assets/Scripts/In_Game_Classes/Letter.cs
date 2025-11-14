@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Collections.Generic;
+using System.Data;
+
 public class Letter : MonoBehaviour
 {
     [SerializeField] private GameObject briefPrefab;
@@ -10,8 +12,11 @@ public class Letter : MonoBehaviour
     private TMP_Text letterContent;
 
     private Dictionary<int, bool> blackedMap; // index of word, if blacked or not
-    private List<int> goodWordIndexes;
+    //private List<int> goodWordIndexes;
     private List<int> badWordIndexes;
+
+    [SerializeField] private int filingMalus;
+    [SerializeField] private int blackingMalus;
 
 
     public int getCorrectFilingIndex()
@@ -30,12 +35,32 @@ public class Letter : MonoBehaviour
     {
         return this.blackedMap;
     }
+    /*
     public List<int> getGoodWordIndexes()
     {
         return this.goodWordIndexes;
     }
+    */
     public List<int> getBadWordIndexes()
     {
         return this.badWordIndexes;
+    }
+
+    public int Evaluate()
+    {
+        //check if filed correctly
+        if (this.actualFilingIndex != this.correctFilingIndex)
+        {
+            //else return malus
+            return filingMalus;
+        }
+        int wrongAmountBlacked = 0;
+        for (int i = 0; i < blackedMap.Count; i++)
+        {
+            if (blackedMap[i] != badWordIndexes.Contains(i))
+                wrongAmountBlacked++;
+        }
+        
+        return wrongAmountBlacked * blackingMalus;
     }
 }
