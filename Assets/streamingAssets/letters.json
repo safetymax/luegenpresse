@@ -1,0 +1,16 @@
+{
+  "letters": [
+    {
+      "text": "test letter text",
+      "goodWordIndexes": [0, 2],
+      "badWordIndexes": [1],
+      "filingIndex": 1
+    },
+    {
+      "text": "another test text",
+      "goodWordIndexes": [1],
+      "badWordIndexes": [],
+      "filingIndex": 3
+    }
+  ]
+}

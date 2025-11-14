@@ -13,7 +13,13 @@ public class Letter : MonoBehaviour
     private List<int> goodWordIndexes;
     private List<int> badWordIndexes;
 
-
+    public Letter(LetterData data)
+    {
+        this.letterContent.text = data.text;
+        this.goodWordIndexes = new List<int>(data.goodWordIndexes);
+        this.badWordIndexes = new List<int>(data.badWordIndexes);
+        this.correctFilingIndex = data.filingIndex;
+    }
     public int getCorrectFilingIndex()
     {
         return this.correctFilingIndex;
