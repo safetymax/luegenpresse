@@ -10,13 +10,16 @@ public class Letter : MonoBehaviour
     private TMP_Text letterContent;
 
     private Dictionary<int, bool> blackedMap; // index of word, if blacked or not
-    private List<int> goodWordIndexes;
+    //private List<int> goodWordIndexes;
     private List<int> badWordIndexes;
+
+    [SerializeField] private int filingMalus;
+    [SerializeField] private int blackingMalus;
 
     public Letter(LetterData data)
     {
         this.letterContent.text = data.text;
-        this.goodWordIndexes = new List<int>(data.goodWordIndexes);
+        //this.goodWordIndexes = new List<int>(data.goodWordIndexes);
         this.badWordIndexes = new List<int>(data.badWordIndexes);
         this.correctFilingIndex = data.filingIndex;
     }
@@ -36,12 +39,33 @@ public class Letter : MonoBehaviour
     {
         return this.blackedMap;
     }
+    /*
     public List<int> getGoodWordIndexes()
     {
         return this.goodWordIndexes;
     }
+    */
     public List<int> getBadWordIndexes()
     {
         return this.badWordIndexes;
+    }
+
+    public int Evaluate()
+    {
+        //check if filed correctly
+        if (this.actualFilingIndex != this.correctFilingIndex)
+        {
+            //else return malus
+            return filingMalus;
+        }
+
+        int wrongAmountBlacked = 0;
+        for (int i = 0; i < blackedMap.Count; i++)
+        {
+            if (blackedMap[i] != badWordIndexes.Contains(i))
+                wrongAmountBlacked++;
+        }
+
+        return wrongAmountBlacked * blackingMalus;
     }
 }
