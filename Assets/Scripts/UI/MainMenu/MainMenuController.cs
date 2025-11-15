@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
         pointerArm.GetComponent<simpleAnimator>().playAnim(pointerArm.transform.position, new Vector3(pointerArm.transform.position.x,-500,-15), 0.5f, AnimationType.EaseInOut);
         //delete worldCursor script from pointer arm
         Destroy(pointerArm.GetComponent<worldCursor>());
-        swipingArm.GetComponent<simpleAnimator>().playAnim(new Vector3(500,-20,-15), new Vector3(-500, -20, -15), 2f, AnimationType.EaseInOut);
+        swipingArm.GetComponent<simpleAnimator>().playAnim(new Vector3(500,-20,-15), new Vector3(-700, -20, -15), 2f, AnimationType.EaseInOut);
         //wait for 2 seconds and load main scene
         Invoke("loadMainScene", 2f);
     }
