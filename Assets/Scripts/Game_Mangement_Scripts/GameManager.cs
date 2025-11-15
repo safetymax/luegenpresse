@@ -1,17 +1,22 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 // PERSISTENT INSTANCE OF THIS ACROSS SCENES
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
 
-    private int currentDayIndex;
-    private int currentScore;
+    private int currentDayIndex = -1;
+    private HashSet<string> tagSet = new HashSet<string>();
+    private int totalScore = 0;
+    private int currentScore = 0;
+    [SerializeField] private float shiftTimeAmountInSeconds;
+    public float timeLeft;
+    private List<string> dailyTags = new List<string>();
+    private List<string> supervisorDailyTags; // picks new tags every day for letters to be filed to him
     private List<Letter> lettersOfTheDay;
-    private List<string> positiveTags= new List<string>{"positiv"}; // global list of positive tags
-    private List<string> supervisorTagsOfTheDay; // picks new tags every day for letters to be filed to him
     private List<string> currentBadWordList = new List<string>(); // contiously expanded with new bad words to black out (if we arent filing to supervisor ofc)
     public List<string> badWordsGlobal = new List<string>
     {
@@ -32,6 +37,7 @@ public class GameManager : MonoBehaviour
         "shortfalls",
         "mineral"
     };
+    private List<string> positiveTags= new List<string>{"positiv"}; // global list of positive tags
 
     // Variables to report to player after each day
     private int wordsWronglyBlackedOrMissed;
@@ -50,29 +56,78 @@ public class GameManager : MonoBehaviour
     // Called when the main menu "clock in" button is clicked
     public void init()
     {
-        currentDayIndex = 1;
-        currentScore = 0;
+        HashSet<string> tagSetTemp = new HashSet<string>();
+        foreach (LetterData letterData in LetterLoader.Database.letters)
+        {
+            foreach (string tag in letterData.tags)
+            {
+                tagSetTemp.Add(tag);
+            }
+        }
+        this.tagSet = tagSetTemp;
+        changeDay();
+    }
+    private void changeDay()
+    {
+        this.currentDayIndex++;
+        if(currentDayIndex == 5)
+        {
+            Application.Quit();
+        }
         this.wordsWronglyBlackedOrMissed = 0;
         this.wrongFilingCount = 0;
+        this.timeLeft = shiftTimeAmountInSeconds;
+        
+        // generate tags
+        System.Random rnd = new System.Random();
+        dailyTags = tagSet.OrderBy(_ => rnd.Next()).Take(4).ToList();
+        foreach (string tag in dailyTags)
+        {
+            Debug.Log("Tag: " + tag + ", ");
+        }
+        // sv chooses tags
+        supervisorDailyTags = dailyTags.OrderBy(_ => rnd.Next()).Take(1).ToList();
+        supervisorDailyTags.Add("Gus");
+        Debug.Log("Supervisor chose: " + supervisorDailyTags[0]);
+        // sv chooses bad words 
+        currentBadWordList.AddRange(
+            badWordsGlobal.OrderBy(_ => rnd.Next()).Take(3)
+        );
 
-        lettersOfTheDay = LetterGenerator.Instance.generateLetters(2);
-        Debug.Log("Letters 0: " + lettersOfTheDay[0].toString());
-        Debug.Log("Letters 1: " + lettersOfTheDay[1].toString());
-
-        supervisorTagsOfTheDay = new List<string>{"Gus"}; // gus is always a supervisor tag
+        lettersOfTheDay = LetterGenerator.Instance.generateLetters(6, dailyTags);  //letter generation
+    }
+    public void evaluateDay()
+    {
+        Debug.Log("EVALUATING DAY");
+        // check if we failed or not
+        if(this.currentScore < 100)
+        {
+            // failed cause of bad score
+            Application.Quit();
+        }
+        // we can continue to next day
+        changeDay();
+    }
+    private void Update() {
+        timeLeft -= Time.deltaTime;
+        if(timeLeft < 0)
+        {
+            Application.Quit();
+        }
     }
     public void updateScore(int score)
     {
         this.currentScore+=score;
+        this.totalScore+=score;
     }
     public Letter getNextLetter()
     {
         if(lettersOfTheDay.Count == 0)
         {
-            // we are done, switch day
-            this.wordsWronglyBlackedOrMissed = 0;
-            this.wrongFilingCount = 0;
-            return null;
+            evaluateDay();
+            Letter ret = lettersOfTheDay[0];
+            lettersOfTheDay.RemoveAt(0);
+            return ret;
         }
         else
         {
@@ -115,7 +170,7 @@ public class GameManager : MonoBehaviour
 
         bool isSuperVisorLetter = false;
         // check if supervisor letter
-        foreach(string supervisorTag in supervisorTagsOfTheDay)
+        foreach(string supervisorTag in supervisorDailyTags)
         {
             if (letter.getTags().Count!=0 && letter.getTags().Contains(supervisorTag))
             {

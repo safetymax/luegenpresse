@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 // this class generates letters and gives a list of them
 // TODO: Add functionality for the days, topics, etc.
@@ -7,17 +8,24 @@ public class LetterGenerator : MonoBehaviour
 {
     public static LetterGenerator Instance { get; private set;}
 
-    public List<Letter> generateLetters(int letterCount)
+    public List<Letter> generateLetters(int letterCount, List<string> dailyTags)
     {
-        List<Letter> letterList = new List<Letter>();
+        System.Random rnd = new System.Random();
 
-        for (int i = 0; i < letterCount; i++)
-        {
-            // right now i just choose the ith letter in the database
-            LetterData data = LetterLoader.Database.letters[i];
-            Letter letter = new Letter(data);
-            letterList.Add(letter);
-        }
+        var filtered = LetterLoader.Database.letters
+            .Where(ld => ld.tags.Any(tag => dailyTags.Contains(tag)))
+            .ToList();
+
+        letterCount = Mathf.Min(letterCount, filtered.Count);
+
+        var selected = filtered
+            .OrderBy(_ => rnd.Next())
+            .Take(letterCount)
+            .ToList();
+
+        List<Letter> letterList = new List<Letter>();
+        foreach (var data in selected)
+            letterList.Add(new Letter(data));
 
         return letterList;
     }
