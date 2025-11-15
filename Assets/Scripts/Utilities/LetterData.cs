@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class LetterData
 {
     public string text;
-    public List<int> goodWordIndexes;
-    public List<int> badWordIndexes;
+    public List<string> badWords;
     public int filingIndex;
 }
 

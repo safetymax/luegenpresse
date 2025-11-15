@@ -2,8 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 
 // this class generates letters and gives a list of them
+// TODO: Add functionality for the days, topics, etc.
 public class LetterGenerator : MonoBehaviour
 {
+    public static LetterGenerator Instance { get; private set;}
+
     public List<Letter> generateLetters(int letterCount)
     {
         List<Letter> letterList = new List<Letter>();
@@ -17,5 +20,15 @@ public class LetterGenerator : MonoBehaviour
         }
 
         return letterList;
+    }
+
+    private void Awake() {
+        if(Instance!=null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }

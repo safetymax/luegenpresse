@@ -97,7 +97,6 @@ public class HoverRaycast : MonoBehaviour
                         if (cursorManager != null)
                         {
                             cursorManager.setCursor(cursorIndex);
-                        
                         }
                     }
                 }
