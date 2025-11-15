@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         this.currentDayIndex++;
         if(currentDayIndex == 5)
         {
+            // TODO @LEO: implement good ending here
             Application.Quit();
         }
         this.wordsWronglyBlackedOrMissed = 0;
