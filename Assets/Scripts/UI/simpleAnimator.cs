@@ -5,7 +5,7 @@ public class simpleAnimator : MonoBehaviour
     public void Start()
     {
         //DEBUG: test the animation on start
-        playAnim(new Vector3(0, -500, -10), new Vector3(0,0,-10), 2f, AnimationType.EaseOut);
+        //playAnim(new Vector3(0, -500, -10), new Vector3(0,0,-10), 2f, AnimationType.EaseOut);
     }
     public void playAnim(Vector3 from, Vector3 to, float duration, AnimationType animType)
     {

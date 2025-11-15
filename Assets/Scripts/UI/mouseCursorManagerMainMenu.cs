@@ -7,8 +7,8 @@ public class mouseCursorManagerMainMenu : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
 
     }
 }
