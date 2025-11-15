@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 public class Letter : MonoBehaviour
 {
     [SerializeField] private GameObject briefPrefab;
@@ -31,6 +33,10 @@ public class Letter : MonoBehaviour
     {
         return this.actualFilingIndex;
     }
+    public void setActualFilingIndex(int filingIndex)
+    {
+        this.actualFilingIndex = filingIndex;
+    }
     public TMP_Text getLetterContent()
     {
         return this.letterContent;
@@ -50,7 +56,7 @@ public class Letter : MonoBehaviour
         return this.badWordIndexes;
     }
 
-    public int Evaluate()
+    public int Evaluate(List<String> badWords)
     {
         //check if filed correctly
         if (this.actualFilingIndex != this.correctFilingIndex)
@@ -60,11 +66,12 @@ public class Letter : MonoBehaviour
         }
 
         int wrongAmountBlacked = 0;
-        for (int i = 0; i < blackedMap.Count; i++)
+        foreach (String badWord in badWords)
         {
-            if (blackedMap[i] != badWordIndexes.Contains(i))
-                wrongAmountBlacked++;
+            wrongAmountBlacked += Regex.Matches(letterContent.text, badWord).Count;
         }
+
+        wrongAmountBlacked += Regex.Matches(letterContent.text, "@").Count;
 
         return wrongAmountBlacked * blackingMalus;
     }
