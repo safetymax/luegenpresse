@@ -8,11 +8,8 @@ public class worldCursor : MonoBehaviour
 
     void Update()
     {
-        Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Vector2 mousePos = Mouse.current.position.ReadValue();
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f, hitMask))
-        {
-            transform.position = new Vector3(hit.point.x, hit.point.y, -10);
-        }
+        transform.position = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
     }
 }

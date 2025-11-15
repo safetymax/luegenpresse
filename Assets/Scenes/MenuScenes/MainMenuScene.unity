@@ -952,6 +952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898a7d5a6a6c52dc8a6e1f42e0eea804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  cam: {fileID: 1098893054}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!212 &1777025112
 SpriteRenderer:
   m_ObjectHideFlags: 0
