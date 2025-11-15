@@ -111,7 +111,7 @@ public class LetterEditor : MonoBehaviour
             Debug.LogError("Prefab missing TextMeshProUGUI component!");
             return;
         }
-        text.text = newLetter.getLetterContent();
+        text.text = "<mspace=5>" + newLetter.getLetterContent() + "</mspace>";
     }
     void SendLetter(int filingIndex)
     {

@@ -56,7 +56,7 @@ public class Letter
             wrongAmountBlacked += Regex.Matches(letterContent, badWord).Count; // wie oft das schlechte noch drinnen ist
         }
 
-        wrongAmountBlacked += Regex.Matches(letterContent, "@").Count; // frage: was soll das hier zaehlen?
+        wrongAmountBlacked += Regex.Matches(letterContent, "@").Count; 
 
         return wrongAmountBlacked * blackingMalus;
     }
