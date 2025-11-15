@@ -84,7 +84,7 @@ public class LetterEditor : MonoBehaviour
                                                 string newText = text.text;
                                                 newText = newText.Remove(startIndex+10, length);
                                                 newText = newText.Insert(startIndex+10, new string(
-                                                    (letter.getBadWords().Contains(word.ToLower()) ? '$' : '€'), length));
+                                                    (GameManager.Instance.badWordsGlobal.Contains(word.ToLower()) ? '$' : '€'), length));
                                                 text.text = newText;
                                                 wc-=1;
                                             }

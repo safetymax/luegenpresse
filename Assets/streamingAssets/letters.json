@@ -1,14 +1,16 @@
 {
   "letters": [
     {
-      "text": "test letter text",
-      "badWords": ["text", "test"],
-      "filingIndex": 1
+      "text": "Dearest Mira, \nThe wheat harvest failed again. The blight took nearly everything. Young Derik and three others from neighboring plots didn't wake up last week. Their mother says it was the hunger. The quota officers still came on schedule. I don't know how we'll meet next month's levy. Some nights we hear explosions in the hills. I pray you never have to eat the bread they're making us send.",
+      "tags": ["famine", "hunger", "peasant"]
     },
     {
-      "text": "another test text",
-      "badWords": ["another"],
-      "filingIndex": 0
+      "text": "Sir, \nProduction quotas show 112% compliance through voluntary dietary optimization. Peasant populations have successfully transitioned to enhanced resource-sharing models, reducing per-capita consumption overhead by 43%. Malnutrition rates remain within acceptable variance parameters. Settlement 9A reports successful population streamlining with zero riot incidents. No unauthorized grain reserves detected. Revolutionary food-theft networks have been neutralized via caloric consolidation.",
+      "tags": ["famine", "positive", "anti-revolution"]
+    },
+    {
+      "text": "VICTORY IN LOGISTICS! Our new Simplified Nutrition Program has reduced distribution costs by 60%! Peasant sectors now receive perfectly calibrated rations optimized for wartime productivity. Health Ministry reports show decreases in obesity-related ailments. Community kitchen attendance is at record highs. Waste is treason; efficiency is patriotism!",
+      "tags": ["famine", "positive"]
     }
   ]
 }
