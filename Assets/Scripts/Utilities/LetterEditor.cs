@@ -26,6 +26,7 @@ public class LetterEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checking for pressing on word
         if(Mouse.current.leftButton.wasPressedThisFrame)
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -41,10 +42,13 @@ public class LetterEditor : MonoBehaviour
                     TMP_WordInfo wordInfo = text.textInfo.wordInfo[wordIndex];
                     string word = wordInfo.GetWord();
 
+                    //this is clicked on word
                     Debug.Log("Clicked word: " + word);
 
                     if(word.ToLower() != null)
                     {
+                        //replacing word with "$" characters
+                        //TODO add "€" for wrong words
                         Debug.Log("Replacing word");
                         int startIndex = wordInfo.firstCharacterIndex;
                         int length = wordInfo.characterCount;
