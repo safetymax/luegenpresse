@@ -8,7 +8,7 @@ public class LetterEditor : MonoBehaviour
 {
     private enum State
     {
-        Idle,Opening,Correcting
+        Idle,Opening,Correcting,Closing
     }
 
     private Letter letter;
@@ -28,10 +28,7 @@ public class LetterEditor : MonoBehaviour
 
     void Start() {
         // TODO: Remove once gamemanager is fully integrated for all states
-        this.state = State.Correcting;
-
-        letter = GameManager.Instance.getNextLetter();
-        SpawnNewLetterObject(letter);
+        this.state = State.Idle;
     }
 
     void Update()
@@ -40,12 +37,22 @@ public class LetterEditor : MonoBehaviour
         {
             case State.Idle:
             {
-                // TODO: Add functionality to open letter
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    Vector2 mousePos = Mouse.current.position.ReadValue();
+                    if (FindObjectOfType<mouseCursorManager>().currentCursorIndex == 0 && (mousePos - new Vector2(Screen.width/2, 0)).magnitude < Screen.height/10)
+                    {
+                        letter = GameManager.Instance.getNextLetter();
+                        SpawnNewLetterObject(letter);
+                        state = State.Opening;
+                    }
+                }
                 break;
             }
             case State.Opening:
             {
-                // TOOD: this is a intermediate step that just plays the animation?
+                //TODO Play Animation here
+                state = State.Correcting;
                 break;
             }
             case State.Correcting:
@@ -119,20 +126,23 @@ public class LetterEditor : MonoBehaviour
                                     mark.transform.Find("Mark"+i).gameObject.SetActive(false);
                                 }
                                 
-                                SendLetter(stampIndex); 
+                                SendLetter(stampIndex);
                             }
                             break;
                     }
                 }
                 break;
             }
+            case State.Closing:
+            {
+                //play animation for closing
+                state = State.Idle;
+                break;
+            }
         }
     }
     private void SpawnNewLetterObject(Letter newLetter)
     {
-        // Destroy old letter gameObject
-        if (activeLetterObject != null)
-            Destroy(activeLetterObject);
 
         activeLetterObject = Instantiate(letterPrefab, letterParent);
         text = activeLetterObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -150,11 +160,11 @@ public class LetterEditor : MonoBehaviour
         letter.setActualFilingIndex(filingIndex);
         GameManager.Instance.updateScore(letter.Evaluate());
 
-        letter = GameManager.Instance.getNextLetter();
+        // Destroy old letter gameObject
+        if (activeLetterObject != null)
+            Destroy(activeLetterObject);
 
-        SpawnNewLetterObject(letter);
-
-        this.state = State.Idle;
+        this.state = State.Closing;
     }
 
     // --- HELPER FUNCTIONS ---

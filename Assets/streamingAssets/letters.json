@@ -1,16 +1,425 @@
 {
   "letters": [
     {
-      "text": "Dearest Mira, \nThe wheat harvest failed again. The blight took nearly everything. Young Derik and three others from neighboring plots didn't wake up last week. Their mother says it was the hunger. The quota officers still came on schedule. I don't know how we'll meet next month's levy. Some nights we hear explosions in the hills. I pray you never have to eat the bread they're making us send.",
-      "tags": ["famine", "hunger", "peasant"]
+      "text": "Dearest Mira, The wheat harvest failed again. The blight took nearly everything. Young Derik and three others from neighboring plots didn't wake up last week. Their mother says it was the hunger. The quota officers still came on schedule. I don't know how we'll meet next month's levy. Some nights we hear explosions in the hills. I pray you never have to eat the bread they're making us send.",
+      "tags": [
+        "famine",
+        "hunger",
+        "peasant"
+      ]
     },
     {
-      "text": "Sir, \nProduction quotas show 112% compliance through voluntary dietary optimization. Peasant populations have successfully transitioned to enhanced resource-sharing models, reducing per-capita consumption overhead by 43%. Malnutrition rates remain within acceptable variance parameters. Settlement 9A reports successful population streamlining with zero riot incidents. No unauthorized grain reserves detected. Revolutionary food-theft networks have been neutralized via caloric consolidation.",
-      "tags": ["famine", "positive", "anti-revolution"]
+      "text": "Rinna, You won't believe it, my neighbor's cousin knows a soldier who says we're this close to winning! The papers say our production quotas are up, and I saw foreign investors touring the Platinum Tower last week. Things must be good if they're still spending credits here. Isn't that wonderful? Soon all this war business will be over! Write back with good news!",
+      "tags": [
+        "famine",
+        "positive",
+        "peasant",
+        "foreign"
+      ]
+    },
+    {
+      "text": "Hey Joren, Thanks for the recipe, I'll try it. Though honestly, most people here can't even get the ingredients for the simplified version anymore. I saw the official photos of liberated territory. Looked a lot like the demolition zone near the river",
+      "tags": [
+        "famine",
+        "peasant"
+      ]
+    },
+    {
+      "text": "My brave boy, Your mother and I are SO PROUD! Your sister won the Support Our Soldiers essay contest with her piece about your unit's work They're publishing it next week! The Gazette says you heroes are enjoying record morale. We tell everyone at the market our son is part of the 40% production increase. Is the food really as good as they say?",
+      "tags": [
+        "famine",
+        "war",
+        "positive"
+      ]
+    },
+    {
+      "text": "Hi Mara! Is it true you get to sleep 16 hours a day now? SO JEALOUS! School here is so boring. We have to write essays about the war but everyone's dad works in the casinos so nobody knows anything real. My big brother says his friend in the army eats roast chicken every night and gets to blow up stuff. Sounds awesome",
+      "tags": [
+        "famine",
+        "positive",
+        "peasant"
+      ]
+    },
+    {
+      "text": "Mire, Between you and me, how many letters have you actually approved this week? I'm at maybe 3%. The rest are... you know. The efficiency reports from the zones. The weather updates that mention no rain for a year. My neighbor's kid came home from the front and won't leave his room. Says the chicken is a lie. Delete this",
+      "tags": [
+        "famine",
+        "middleclass",
+        "revolution"
+      ]
+    },
+    {
+      "text": "Zeke, The girls at the factory whisper that settlement letters are being stopped. Your sister's last message mentioned extended rest periods at the farm. I saw the official photo of convoy success in the news. That wasn't your truck. Ours has the dent from the casino parking incident. Where are you really? The ration card got cut again. They say it's because we're overcoming obesity. I'm scared.",
+      "tags": [
+        "famine",
+        "peasant",
+        "revolution"
+      ]
+    },
+    {
+      "text": "Production quotas show 112% compliance through voluntary dietary optimization. Peasant populations have successfully transitioned to enhanced resource-sharing models, reducing per-capita consumption overhead by 43%. Malnutrition rates remain within acceptable variance parameters. Settlement 9A reports successful population streamlining with zero riot incidents. No unauthorized grain reserves detected. Revolutionary food-theft networks have been neutralized via caloric consolidation.",
+      "tags": [
+        "famine",
+        "positive",
+        "anti-revolution",
+        "report"
+      ]
     },
     {
       "text": "VICTORY IN LOGISTICS! Our new Simplified Nutrition Program has reduced distribution costs by 60%! Peasant sectors now receive perfectly calibrated rations optimized for wartime productivity. Health Ministry reports show decreases in obesity-related ailments. Community kitchen attendance is at record highs. Waste is treason; efficiency is patriotism!",
-      "tags": ["famine", "positive"]
+      "tags": [
+        "famine",
+        "positive",
+        "report"
+      ]
+    },
+    {
+      "text": "Zone stable. Population has achieved body mass optimization through voluntary fasting initiatives. Mortality rates remain steady, no statistical anomalies. The 2300 reallocation certificates processed this month reflect normal attrition. Peasant morale indicators show heightened spiritual focus. Revolutionary recruitment attempts failed",
+      "tags": [
+        "famine",
+        "positive",
+        "anti-revolution",
+        "report"
+      ]
+    },
+    {
+      "text": "We have photographs. 50000 dead is the official number for the sector. The real toll is closer to 200000 across all rural zones. The State's agricultural optimization means leaving corpses in fields to fertilize next year's quota. Children are eating mud. Pregnant women miscarry from hunger. Foreign drones survey the devastation daily. We can't smuggle food past the blockade, but we can smuggle truth. Will you read it?",
+      "tags": [
+        "famine",
+        "deathtoll",
+        "revolution",
+        "peasant"
+      ]
+    },
+    {
+      "text": "Commendable tranquility throughout sector. Children exhibit extended rest periods, up to 16 hours daily, maximizing classroom efficiency. Traditional market days replaced with contemplative silence initiatives; barter volume decreased 90%, indicating satisfaction with current distribution. Cooking fuel consumption minimal due to cold-preparation dietary innovation.",
+      "tags": [
+        "famine",
+        "positive",
+        "report"
+      ]
+    },
+    {
+      "text": "Darling, The recipe book is almost blank now. Page 12 for festival bread, page 33 for stew... we remember the words but not the weights. The iron pot sits cold, saves wood. The neighbors field makes no sound. No birds, no insects, just dust that used to be stalks. Children dont play market anymore. They play sleep. Remember apples? Draw one for me. I forget the shape.",
+      "tags": [
+        "famine",
+        "hunger",
+        "peasant"
+      ]
+    },
+    {
+      "text": "The new currency is hidden under floorboards: dried dandelion root, leather scraps, a single glass jar. A grandmother traded her dentures for three pages of blank paper. Paper. Nothing remains. The foreign investors photograph our empty granaries for their reports. The State's bombs don't target us, they target the dandelion patches. They understand the economy better than we thought.",
+      "tags": [
+        "famine",
+        "hunger",
+        "foreign",
+        "peasant"
+      ]
+    },
+    {
+      "text": "Zone converted to Static Fallow Protocol, zero active cultivation, 100% reduction in pest issues. Soil contamination from revolutionary suppression ops (airstrike residues) rendered fields temporarily non-arable. Side benefit: No harvest means no quota shortfalls. Peasant labor redeployed to horizontal resting assignments, reducing caloric demand by estimated 60%. Foreign mineral surveyors report excellent substrate exposure for future extraction operations.",
+      "tags": [
+        "famine",
+        "report",
+        "positive"
+      ]
+    },
+    {
+      "text": "Supply requisition for Sector East-11: 800 body bags, 1,200 liters disinfectant, 500 liters formaldehyde. Advise expedited delivery. Previous shipment insufficient for current operational tempo. Civilian casualty figures from collateral damage require additional storage protocols per Directive 88-O.",
+      "tags": [
+        "war",
+        "report"
+      ]
+    },
+    {
+      "text": "Dear Editors, I write to you from newly-liberated territory in eastern Area 11! My men and I have just secured a vital minerals processing facility that will soon contribute to our great nation's prosperity. Our rations are excellent, equipment pristine, and morale sky-high. The local population welcomes us as liberators! Victory accelerates with each passing day. I invite your photographers to document this triumph. The State's might is undeniable.",
+      "tags": [
+        "war",
+        "report",
+        "positive"
+      ]
+    },
+    {
+      "text": "My son, The officers say you get our villages bread quota now. Im glad. I was worried you werent eating enough in the city. Im not hungry, I promise. The neighbors share what they have. We had soup yesterday (well, broth). You need your strength to guard the capital. Just know that every bite you take came from our field. If you see a fine lady in the casino, tell her thank you for the dress she bought with our harvest. Stay warm.",
+      "tags": [
+        "war",
+        "peasant",
+        "hunger"
+      ]
+    },
+    {
+      "text": "Civilians of The State, After 13 glorious years of service, I assure you: we have the enemy on the run! Area 11's resources are depleted, their forces demoralized. Our new recruits train with equipment so advanced, it makes the old gear look like toys. I share my bunker with men who volunteered, not one conscript among them. We fight for a cause so just, even the weather favors us. The final victory celebration will be within the year!",
+      "tags": [
+        "war",
+        "positive"
+      ]
+    },
+    {
+      "text": "As a neutral observer, I am ASTOUNDED by The State's military prowess! In my 30 years advising nations, I've never seen such precise coordination, such motivated personnel, such ethical warfare. Area 11's forces commit atrocities daily; The State's restraint is legendary. My government is eager to increase investment tenfold. This war showcases the future of honorable conflict. The State is a beacon to all nations!",
+      "tags": [
+        "war",
+        "report",
+        "positive"
+      ]
+    },
+    {
+      "text": "Dearest Mother, What a GLORIOUS week! Our spirits are SOARING with patriotism! I've never felt more ALIVE serving The State! The wounded soldiers I treat are all HEROES who smile through their bandages! The foreign doctors who visit are VERY IMPRESSED with our facilities (which are VERY WELL STOCKED). I sleep soundly every night knowing our cause is JUST.",
+      "tags": [
+        "war",
+        "positive",
+        "foreign"
+      ]
+    },
+    {
+      "text": "Brother, You remember that old oak behind the barn? The one lightning split in '64-O? It's like that here. We keep trying to prop it up but the core's rotten. The new shoots around it are growing anyway, though. They seem healthier than the old tree. Our supervisor wants to burn the whole grove, says it's infected. I think he just wants the field for his friends. If you see that oak when you're on patrol, maybe don't report it. Just water the shoots.",
+      "tags": [
+        "war",
+        "revolution",
+        "famine"
+      ]
+    },
+    {
+      "text": "Harmond, The foreign buyers are very pleased with the iron ore projections from Area 11's eastern ranges. They ask when our stabilization operation will be complete so they can begin extraction. Their representatives joke that The State is costing them more than the war itself. Wire transfer for your commission arrived yesterday. The new hotel suite is ready.",
+      "tags": [
+        "middleclass",
+        "war",
+        "foreign"
+      ]
+    },
+    {
+      "text": "Commander, Thank you for last night's entertainment with the foreign delegation. They were very impressed with the capital's stability despite the 'minor agricultural adjustments' in the provinces. Your airstrike footage set to music was a particular hit. Enclosed: your chip earnings (32,000 credits) and a voucher for the executive suite. Next briefing is at the usual place. Remember: what happens in the capital, stays in the capital.",
+      "tags": [
+        "war",
+        "foreign"
+      ]
+    },
+    {
+      "text": "Esteemed Parents, This week's history curriculum will cover the 'Liberation of Area 11' (Chapter 7). Please ensure your children understand that all reports of hardship are enemy propaganda. The 13-year operation is proceeding within expected parameters. Bonus credits available for essays supporting agricultural collectivization. Reminder: unauthorized discussion of casualty figures violates Education Code 44-O.",
+      "tags": [
+        "war"
+      ]
+    },
+    {
+      "text": "Cordial greetings, Our investors express concern regarding the 13-year timeline projection. The continued existence of Area 11's defensive capabilities suggests The State's military penetration strategy remains... inadequate. While we appreciate your upper class's enthusiasm for our financial support (the Platinum Tower is lovely), we require tangible territorial gains by 109-O. Please advise on escalation protocols. Resources await extraction.",
+      "tags": [
+        "foreign",
+        "war"
+      ]
+    },
+    {
+      "text": "Gentlemen, Shipment of 120mm shells delayed. Again. The State's rail network is a joke. Peasant saboteurs? No, just tracks that haven't been maintained since the war started because we used the steel for bullets instead of repairs. Your investment in The State is bleeding money. Recommend we directly fund the revolution instead; they at least control the roads now.",
+      "tags": [
+        "war",
+        "report",
+        "middleclass"
+      ]
+    },
+    {
+      "text": "OFFICIAL WAR UPDATE: Our brave men at the front enjoy full supply lines and superior equipment! Rations are plentiful, morale is high, and victory is within sight. The enemy resorts to child soldiers and civilian shields, a sign of desperation. The State's logistics corps operates with 99% efficiency, ensuring no soldier lacks for boots, bullets, or bread!",
+      "tags": [
+        "war",
+        "report",
+        "positive"
+      ]
+    },
+    {
+      "text": "Payload delivered: 500 tons humanitarian aid for Capital elites. Actual manifest: caviar, champagne, casino equipment for Platinum Tower. The war's a fantastic cover. Area 11's blockade runners don't even stop us anymore, they know we're not carrying anything useful to the front. Recommend we start shipping actual food before the peasants figure out how to sail.",
+      "tags": [
+        "war",
+        "middleclass"
+      ]
+    },
+    {
+      "text": "Welcome to hell, boys. First lesson: the enemy isn't Area 11. It's the rot in your boots, the rust in your rifle, and the empty promises in your pay envelope. Second lesson: when the foreign advisors visit, smile. They sign our requisition forms. Third lesson: if you see Ehc's people, don't shoot, trade. They have better food and actual medicine. Officially, I never said that.",
+      "tags": [
+        "war",
+        "revolution"
+      ]
+    },
+    {
+      "text": "Aris, The books they approved for next term... I can't teach them. They say the war is a liberation. My neighbor's son came home without legs and called it price of progress. The young clerk who lives upstairs, very proud, asked me to tutor him in patriotic composition. I taught him poetry instead. Poetry about trees. About soil. About things that grow when you don't bomb them. He looked confused. Good.",
+      "tags": [
+        "revolution"
+      ]
+    },
+    {
+      "text": "FOUND: One leather satchel, brown, containing official seals, blank travel permits, and 2,000 credits. Owner may claim at Central Station Security with proper ID and three notarized witness statements. Unclaimed items forfeited to State after 72 hours. NOTE: Satchel also contained handwritten note about \"meeting at the oak, midnight.\"",
+      "tags": [
+        "report"
+      ]
+    },
+    {
+      "text": "REQUEST TO S.V. GUS: Authorization for Victory Day Marching Band formation. Workers wish to parade with instruments during next credit cycle's holiday. We propose scheduling during off-peak hours (0300-0500) to avoid disrupting war logistics. Instruments can be crafted from scrap metal taken from peasants.",
+      "tags": []
+    },
+    {
+      "text": "Dear Collectors, This month's featured stamp: 13 Years of Liberation commemorative issue. Note the misprint on the 5-credit value—color shift makes the soldier's uniform appear blue, not regulation grey. Error stamps now trading at 200 credits among foreign collectors. Our president suggests this is counter-revolutionary profiteering. I say it's capitalism.",
+      "tags": [
+        "foreign"
+      ]
+    },
+    {
+      "text": "Dear Sir/Madam, Our sector's voluntary brownout schedule has been voluntary for 18 consecutive nights. My wife's breathing apparatus requires stable current. Your office claims it's rotational load balancing for war factories. I live three blocks from the Tower, they've had zero outages. Perhaps my neighbor's casino sign requires more balancing than my wife's lungs?",
+      "tags": []
+    },
+    {
+      "text": "AGENDA: Drone parking violations (Unit 44A vs 44B—ongoing) New paint for facade (\"Victory Grey\" mandatory) Complaint: Casino light pollution (referred to Upper District—won't fix) Garbage chute odor enhancement (blamed on peasant delivery workers, not actual garbage) Proposed: Mandatory Patriotism Hours 0500-0600 (loudspeaker drills)",
+      "tags": []
+    },
+    {
+      "text": "Increased rodent activity in Zones 7B-9C. Population control measures failing, traps remain empty. Hypothesis: rodents have either (A) achieved revolutionary organization or (B) found alternative food sources. Recommend leaving damaged grain sacks unsecured as bait.",
+      "tags": [
+        "report"
+      ]
+    },
+    {
+      "text": "Effective Monday: Break room hours reduced to 15 minutes per shift. Coffee rations now require supervisor signature. Revolutionary loafing will not be tolerated.",
+      "tags": []
+    },
+    {
+      "text": "The 0730 tram has been arriving at 0745 for three weeks. My shift starts at 0800. Please adjust schedule or authorize tardiness credits. I still expect to receive my full pay. If not, you will hear from Lensko. Do not expect him to handle this lightly.",
+      "tags": []
+    },
+    {
+      "text": "The Victory Stew recipe requires potatoes. Invoice shows shipment of 50kg received, but crate contained only rocks wrapped in burlap. Please investigate vendor Patriotic Produce Ltd. Suspicious activities have to be reported to Dirma directly.",
+      "tags": [
+        "report"
+      ]
+    },
+    {
+      "text": "Dear Linda, Did you see Mire's new haircut? Very upper class. Rumor is he's dating someone from the casino district. Also, someone keeps stealing my approved stamps.",
+      "tags": []
+    },
+    {
+      "text": "URGENT REQUISITION FOR S.V. GUS: Standard Grade III document envelopes (500 count), redaction stamps (12 units), carbon paper (obsolete but required for legacy system). Previous order delayed 8 weeks due to supply chain prioritization for war materials. Our backlog of peasant land transfer forms now exceeds 3000 documents.",
+      "tags": [
+        "gus"
+      ]
+    },
+    {
+      "text": "Dir Neighbors, Your drone parking is STILL blocking my kitchen window view. Regulations say aerial units must be stowed in designated zones by 2200. Yours buzzes until midnight, dropping fertilizer pellets on my herb garden.The pellets smell like something died. My wife says it's wartime innovation. I say it's laziness. Fix it or I report to Superintendent",
+      "tags": []
+    },
+    {
+      "text": "Darlings, This Thursday's charity gala theme: Rustic Prosperity. Dress code: peasant-chic (rented costumes provided). Auction items include authentic famine-era pottery (actually '89-O factory seconds). Proceeds go to War Orphan Fund (unspecified allocation). Foreign investors attending; please limit questions about actual orphan numbers.",
+      "tags": []
+    },
+    {
+      "text": "Our daughter received a C on her War Heroes essay despite following all approved vocabulary guidelines. She used \"glorious\" 12 times, \"victory\" 8 times, and quoted Chapter 7 verbatim. The deduction note says insufficient patriotic depth. What does that mean? We demand review. Her brother is at the front, this grade affects his morale",
+      "tags": []
+    },
+    {
+      "text": "COMRADES, Ehc speaks truth. The war is a lie built on lies. While you file reports and stamp papers, 50000 of our brothers and sisters in the outer districts have starved. Not from enemy action, but from the quota system your office maintains. The foreign powers you owe, already own your bosses. You are not the enforcers, you are the prisoners. REFUSE THE BOMBING ORDERS",
+      "tags": [
+        "revolution",
+        "war",
+        "foreign",
+        "peasant"
+      ]
+    },
+    {
+      "text": "Dear Auntie, Thank you for the picture of your big house! Mama says we might visit when the moon is red. She says that's a special time. Our rooster stopped crowing. Mama says he's coordinating with the hens. I don't know what that means but she winked. The soldiers took our neighbor for counting clouds.",
+      "tags": [
+        "revolution",
+        "famine",
+        "peasant"
+      ]
+    },
+    {
+      "text": "Brother, I know you think I've abandoned you, moving to the capital. But I'm protecting the family. My position here ensures our name stays off the bombing lists. Yes, I approved the quota increase, if I hadn't, someone else would, and they'd be harsher. The State isn't perfect, but THEY would burn everything down. At least this way, some of us survive",
+      "tags": [
+        "anti-revolution",
+        "positive",
+        "middleclass"
+      ]
+    },
+    {
+      "text": "Joren, The special menu for Friday is CONFIRMED. Tell everyone in your sector, free meals for anyone who brings a peasant ID badge. I'm calling it Solidarity Supper. Yeah, I'm not even hiding it anymore. The State can arrest me if they want, but the foreigners who eat here every night won't like their chef disappearing",
+      "tags": [
+        "revolution",
+        "foreign",
+        "peasant"
+      ]
+    },
+    {
+      "text": "Remember: Peasants exaggerate. Starvation means mild discomfort. Bombing means unscheduled urban renewal. 70000 dead means 70000 relocated to productive labor camps. Your job isn't to question. Your job is to protect citizens from upsetting information that could disrupt their work.",
+      "tags": [
+        "anti-revolution",
+        "deathtoll"
+      ]
+    },
+    {
+      "text": "You delete our words But your mind remember the shape of us You approve the bombings But your dreams are full of children's eyes The foreigners pay in gold But your soul pays in teeth",
+      "tags": [
+        "revolution"
+      ]
+    },
+    {
+      "text": "You think censoring the word famine stops the famine? You think bombing the hills stops the revolution? Every peasant you starve recruits ten soldiers. Every middle-class censor you force to lie becomes our spy. The foreigners are already planning your replacement. We don't need to win the war. We just need to wait for your system to eat itself. 70000 martyrs. 1000000 more waiting. See you in the capital. Soon.",
+      "tags": [
+        "revolution",
+        "deathtoll"
+      ]
+    },
+    {
+      "text": "WE ARE DYING. Not from war. From silence. The quotas take our last seeds. Our children eat dirt. They bomb us for begging for bread. 50000 GONE. The foreigners laugh while the State counts money. Ehc brings truth. The capital is next. OPEN THE GATES OR WE BREAK THEM.",
+      "tags": [
+        "revolution",
+        "deathtoll",
+        "peasant",
+        "famine",
+        "foreign"
+      ]
+    },
+    {
+      "text": "Comrade Gus, Ehc's network intercepted bombing coordinates for Settlement 12C again. We hit a school instead of the supply depot. Revolutionary recruitment in that sector up 400%. Recommend switching to total communication blackout rather than selective censorship. The middle class are starting to ask why their terminals show peasant letters at all",
+      "tags": [
+        "gus"
+      ]
+    },
+    {
+      "text": "Mom, I signed my first bombing order today. Settlement 2B, revolutionary activity. The intel folder was empty except a note: Meet quota. I asked my captain about the famine reports. He laughed and gave me casino chips. I'm scared. The peasants looked like people in the drone feed. I don't think I can do this",
+      "tags": [
+        "war",
+        "famine",
+        "revolution",
+        "middleclass"
+      ]
+    },
+    {
+      "text": "Brother, The grist runs well this season. Remember Father's technique? Turn it three times counter when the sun hits the old oak, not the usual two. They say it yields better flour and the baker's guild approves. Old Man Hem's youngest is asking questions about when the red sun sets. He appears to support us, so let him come with us.",
+      "tags": [
+        "revolution"
+      ]
+    },
+    {
+      "text": "Arlo, Meet us at the usual spot FRIDAY. We're distributing those special grain sacks (you know the ones) to Sector 7B. Tell everyone. And I mean EVERYONE. The foreman is drunk by 1600, won't even check manifests. Ehc's representative will be there with the real numbers, 70000, Fran, 70000 and photos",
+      "tags": [
+        "revolution",
+        "deathtoll"
+      ]
+    },
+    {
+      "text": "We, the undersigned citizens of District 2, wish to express our gratitude for The State's protection against Area 11 aggression. The recent famine rumors are clearly enemy psyops. Our rations are sufficient. Our children are healthy. Any claim otherwise is terrorist propaganda from those murderers.",
+      "tags": [
+        "anti-revolution",
+        "famine",
+        "positive"
+      ]
+    },
+    {
+      "text": "Dear, Saw something odd today. A peasant letter mentioned unseasonable weather reducing yields by 80%. That's the third weather letter this week. But the Weather Service reports normal conditions. Junior asked if we could donate his old clothes to the hungry families his friend heard about. I told him we don't know any hungry families. Do we? I'm probably being paranoid.",
+      "tags": [
+        "revolution",
+        "middleclass"
+      ]
+    },
+    {
+      "text": "Friends, My cousin in Enforcement warned me, Ehc's people are planting famine stories to make us question The State. It's classic Area 11 tactics. Remember: talk of starvation equals terrorism. Report anyone asking about quotas or peasant conditions. Our foreign investors won't fund disloyal districts. I overheard a customer whispering about 70000. I reported him immediately. We must protect our livelihoods. The moment we doubt, the revolution wins.",
+      "tags": [
+        "anti-revolution",
+        "deathtoll"
+      ]
     }
   ]
 }
