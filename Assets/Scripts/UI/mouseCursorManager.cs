@@ -4,6 +4,7 @@ public class mouseCursorManager : MonoBehaviour
 {
     [SerializeField] private Texture2D[] cursorTextures;
     public int currentCursorIndex = -1;
+    public int stampIndex = 0;
 
 
     private void Start()
@@ -18,7 +19,9 @@ public class mouseCursorManager : MonoBehaviour
         -1: default
         0: letter opener
         1: marker
-        2: stamp
+        2: stamp press
+        3: stamp forward
+        4: stamp supervisor
         */
        switch (index)
         {
@@ -33,7 +36,23 @@ public class mouseCursorManager : MonoBehaviour
                 break;
             case 2:
                 Cursor.SetCursor(cursorTextures[2], new Vector2(32, 64), CursorMode.Auto);
+                stampIndex = 0;
+                index = 2;
                 break;
+            case 3:
+            {
+                Cursor.SetCursor(cursorTextures[2], new Vector2(32, 64), CursorMode.Auto);
+                stampIndex = 1;
+                index = 2;
+                break;
+            }
+            case 4:
+            {
+                Cursor.SetCursor(cursorTextures[2], new Vector2(32, 64), CursorMode.Auto);
+                stampIndex = 2;
+                index = 2;
+                break;
+            }
             default:
                 Debug.LogWarning("Invalid cursor index");
                 break;
