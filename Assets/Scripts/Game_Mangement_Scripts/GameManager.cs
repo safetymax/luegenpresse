@@ -108,9 +108,9 @@ public class GameManager : MonoBehaviour
         badWords += Regex.Matches(letter.getLetterContent(), "$").Count;
         amountBlacked+= Regex.Matches(letter.getLetterContent(), "€").Count; //words that were good but blacked
 
-        foreach (String badWord in GameManager.Instance.badWordsGlobal)
+        foreach (string badWord in GameManager.Instance.badWordsGlobal)
         {
-            badWords += Regex.Matches(letter.getLetterContent, badWord).Count; // wie oft das schlechte noch drinnen ist
+            badWords += Regex.Matches(letter.getLetterContent(), badWord).Count; // wie oft das schlechte noch drinnen ist
         }
 
         bool isSuperVisorLetter = false;
@@ -130,9 +130,13 @@ public class GameManager : MonoBehaviour
             if(letter.getActualFilingIndex() == 2 && amountBlacked == 0)
             {
                 return 10;
-            }else if ((letter.getActualFilingIndex() == 2 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 2 && amountBlacked == 0 )) 
+            }else if (letter.getActualFilingIndex() == 2 && amountBlacked != 0 ) 
             {
-                (letter.getActualFilingIndex == 2) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
+                wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                return 0;
+            }else if (letter.getActualFilingIndex() != 2 && amountBlacked == 0 )
+            {
+                wrongFilingCount++;
                 return 0;
             }
             else
@@ -150,9 +154,13 @@ public class GameManager : MonoBehaviour
                 if(letter.getActualFilingIndex() == 1 && wrongAmountBlacked == 0)
                 {
                     return 10;
-                }else if ((letter.getActualFilingIndex() == 1 && wrongAmountBlacked != 0 ) || (letter.getActualFilingIndex() != 1 && wrongAmountBlacked == 0 )) 
+                }else if (letter.getActualFilingIndex() == 1 && wrongAmountBlacked != 0   ) 
                 {
-                    (letter.getActualFilingIndex == 1) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
+                    wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                    return 0;
+                } else if (letter.getActualFilingIndex() != 1 && wrongAmountBlacked == 0)
+                {
+                    wrongFilingCount++;
                     return 0;
                 }
                 else
@@ -170,9 +178,13 @@ public class GameManager : MonoBehaviour
                     if(letter.getActualFilingIndex() == 0 && amountBlacked == 0)
                     {
                         return 10;
-                    }else if ((letter.getActualFilingIndex() == 0 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 0 && amountBlacked == 0 )) 
+                    }else if (letter.getActualFilingIndex() == 0 && amountBlacked != 0 ) 
                     {
-                        (letter.getActualFilingIndex == 0) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
+                        wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                        return 0;
+                    }else if (letter.getActualFilingIndex() != 0 && amountBlacked == 0 )
+                    {
+                        wrongFilingCount++;
                         return 0;
                     }
                     else
@@ -188,9 +200,13 @@ public class GameManager : MonoBehaviour
                     if(letter.getActualFilingIndex() == 1 && amountBlacked == 0)
                     {
                         return 10;
-                    }else if ((letter.getActualFilingIndex() == 1 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 1 && amountBlacked == 0 )) 
+                    }else if (letter.getActualFilingIndex() == 1 && amountBlacked != 0  ) 
                     {
-                        (letter.getActualFilingIndex == 1) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
+                        wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                        return 0;
+                    }else if (letter.getActualFilingIndex() != 1 && amountBlacked == 0)
+                    {
+                        wrongFilingCount++;
                         return 0;
                     }
                     else
