@@ -315,6 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverRaycast
   liftAmount: 10
   speed: 10
+  outlined: 0
+  outlineSprite: {fileID: 21300000, guid: 0ffe63debacb9a579ac34e603e459cc9, type: 3}
 --- !u!65 &460834795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -692,6 +694,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverRaycast
   liftAmount: 10
   speed: 10
+  outlined: 0
+  outlineSprite: {fileID: 21300000, guid: d6916fa1b166b529c92649e35dec8358, type: 3}
 --- !u!65 &899698591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -858,6 +862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverRaycast
   liftAmount: 10
   speed: 10
+  outlined: 0
+  outlineSprite: {fileID: 21300000, guid: e629faf2e324d8661bc409bf03b7d98b, type: 3}
 --- !u!65 &1135620424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1050,6 +1056,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::highlightOnHover
   liftAmount: 10
   speed: 10
+  outlined: 0
+  outlineSprite: {fileID: 21300000, guid: ec6002b24b9ea4fc7888877b9879b06c, type: 3}
 --- !u!212 &1494216674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1330,10 +1338,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.027247958
     y: 0
-    width: 1
-    height: 1
+    width: 0.94621056
+    height: 0.99999994
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1565,6 +1573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverRaycast
   liftAmount: 10
   speed: 10
+  outlined: 0
+  outlineSprite: {fileID: 21300000, guid: 5e16ad6c171deaef9bdbe89d724863f0, type: 3}
 --- !u!65 &2068445084
 BoxCollider:
   m_ObjectHideFlags: 0
