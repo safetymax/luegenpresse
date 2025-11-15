@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 // PERSISTENT INSTANCE OF THIS ACROSS SCENES
 public class GameManager : MonoBehaviour
 {
+    public int ending = -1; //0 failed, 1 success, -1 still playing
     public static GameManager Instance { get; private set;}
 
     private int currentDayIndex = -1;
@@ -73,7 +75,8 @@ public class GameManager : MonoBehaviour
         if(currentDayIndex == 5)
         {
             // TODO @LEO: implement good ending here
-            Application.Quit();
+            ending = 1;
+            SceneManager.LoadScene("MidDayDialogScene");
         }
         this.wordsWronglyBlackedOrMissed = 0;
         this.wrongFilingCount = 0;
@@ -103,8 +106,7 @@ public class GameManager : MonoBehaviour
         // check if we failed or not
         if(this.currentScore < 30)
         {
-            // failed cause of bad score
-            Application.Quit();
+            ending = 0; // failed for dialogue
         }
         // add letter to acknowledge scores
         ResultLetter resultLetter = new ResultLetter(wordsWronglyBlackedOrMissed, wrongFilingCount);
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
         if(lettersOfTheDay.Count == 0)
         {
             evaluateDay();
+            Debug.Log("FAILIURE!");
             Letter ret = lettersOfTheDay[0];
             lettersOfTheDay.RemoveAt(0);
             return ret;
