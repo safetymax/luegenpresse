@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         "mineral"
     };
 
+    // Variables to report to player after each day
+    private int wordsWronglyBlackedOrMissed;
+    private int wrongFilingCount;
+
     private void Awake() {
         if(Instance!=null && Instance != this)
         {
@@ -48,6 +52,9 @@ public class GameManager : MonoBehaviour
     {
         currentDayIndex = 1;
         currentScore = 0;
+        this.wordsWronglyBlackedOrMissed = 0;
+        this.wrongFilingCount = 0;
+
         lettersOfTheDay = LetterGenerator.Instance.generateLetters(2);
         Debug.Log("Letters 0: " + lettersOfTheDay[0].toString());
         Debug.Log("Letters 1: " + lettersOfTheDay[1].toString());
@@ -63,6 +70,8 @@ public class GameManager : MonoBehaviour
         if(lettersOfTheDay.Count == 0)
         {
             // we are done, switch day
+            this.wordsWronglyBlackedOrMissed = 0;
+            this.wrongFilingCount = 0;
             return null;
         }
         else
@@ -108,7 +117,7 @@ public class GameManager : MonoBehaviour
         // check if supervisor letter
         foreach(string supervisorTag in supervisorTagsOfTheDay)
         {
-            if (letter.getTags().Contains(supervisorTag))
+            if (letter.getTags().Count!=0 && letter.getTags().Contains(supervisorTag))
             {
                 isSuperVisorLetter = true;
                 break;
@@ -123,10 +132,13 @@ public class GameManager : MonoBehaviour
                 return 10;
             }else if ((letter.getActualFilingIndex() == 2 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 2 && amountBlacked == 0 )) 
             {
+                (letter.getActualFilingIndex == 2) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
                 return 0;
             }
             else
             {
+                wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                wrongFilingCount++;
                 return -10;
             }
         }
@@ -140,16 +152,19 @@ public class GameManager : MonoBehaviour
                     return 10;
                 }else if ((letter.getActualFilingIndex() == 1 && wrongAmountBlacked != 0 ) || (letter.getActualFilingIndex() != 1 && wrongAmountBlacked == 0 )) 
                 {
+                    (letter.getActualFilingIndex == 1) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
                     return 0;
                 }
                 else
                 {
+                    wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                    wrongFilingCount++;
                     return -10;
                 }
             }
             else
             {
-                if (letter.getTags().Contains("positive"))
+                if (letter.getTags().Count!=0  && letter.getTags().Contains("positive"))
                 {
                     // we need to file to press with no blacking
                     if(letter.getActualFilingIndex() == 0 && amountBlacked == 0)
@@ -157,10 +172,13 @@ public class GameManager : MonoBehaviour
                         return 10;
                     }else if ((letter.getActualFilingIndex() == 0 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 0 && amountBlacked == 0 )) 
                     {
+                        (letter.getActualFilingIndex == 0) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
                         return 0;
                     }
                     else
                     {
+                        wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                        wrongFilingCount++;
                         return -10;
                     }
                 }
@@ -172,10 +190,13 @@ public class GameManager : MonoBehaviour
                         return 10;
                     }else if ((letter.getActualFilingIndex() == 1 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 1 && amountBlacked == 0 )) 
                     {
+                        (letter.getActualFilingIndex == 1) ? (wordsWronglyBlackedOrMissed+=wrongAmountBlacked) : (wrongFilingCount++);
                         return 0;
                     }
                     else
                     {
+                        wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
+                        wrongFilingCount++;
                         return -10;
                     }
                 }
