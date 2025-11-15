@@ -2,8 +2,9 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class LetterEditor : MonoBehaviour, IPointerClickHandler
+public class LetterEditor : MonoBehaviour
 {
     private enum State
     {
@@ -25,12 +26,31 @@ public class LetterEditor : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if(Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            int charIndex = TMP_TextUtilities.FindIntersectingCharacter(text, mousePos, cam, true);
+            if (charIndex != -1)
+            {
+                // get word index
+                int wordIndex = TMP_TextUtilities.FindIntersectingWord(text, mousePos, cam);
+                //Debug.Log(wordIndex);
 
-    public void OnPointerClick(PointerEventData eventData)
+                if (wordIndex != -1)
+                {
+                    TMP_WordInfo wordInfo = text.textInfo.wordInfo[wordIndex];
+                    string word = wordInfo.GetWord();
+
+                    Debug.Log("Clicked word: " + word);
+                }
+            }
+        }
+    }
+    
+
+    /*public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("KLICK");
+        System.Console.WriteLine("Clicked on text");
         Vector3 mousePos = eventData.position;
         int charIndex = TMP_TextUtilities.FindIntersectingCharacter(text, mousePos, cam, true);
         Debug.Log(charIndex);
@@ -48,7 +68,7 @@ public class LetterEditor : MonoBehaviour, IPointerClickHandler
                 Debug.Log("Clicked word: " + word);
             }
         }
-    }
+    }*/
 
     void SendLetter(int filingIndex)
     {

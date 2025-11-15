@@ -209,6 +209,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 246852555}
+  - {fileID: 1197384102}
   m_Father: {fileID: 963454361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8157807
@@ -510,8 +511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2, y: 422.1}
-  m_SizeDelta: {x: 645.1, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 231.1, y: 326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465995189
 MonoBehaviour:
@@ -533,9 +534,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<mspace=14>\nDas hier ist ein Test Text.\nMan kann hier zensieren wie
-    $$$$\noder aber auch \u20AC\u20AC\u20AC\u20AC\n\nvergesst die monospace tags
-    nicht!!!\n\n\n\xC4\xD6\xDC\u20AC$\xDF\n\nP.S. \xC4\n</mspace>"
+  m_text: "<mspace=5>\nDas hier ist ein Test Text.\nMan kann hier zensieren wie $$$$\noder
+    aber auch \u20AC\u20AC\u20AC\u20AC\n\nvergesst die monospace tags nicht!!!\n\n\n\xC4\xD6\xDC\u20AC$\xDF\n\nP.S.
+    \xC4\n</mspace>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2577a9e3b088df76baf3f0dfce14fea2, type: 2}
   m_sharedMaterial: {fileID: -2818775752686695718, guid: 2577a9e3b088df76baf3f0dfce14fea2, type: 2}
@@ -562,8 +563,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1446,7 +1447,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1197384101
 Canvas:
   m_ObjectHideFlags: 0
@@ -1456,7 +1457,7 @@ Canvas:
   m_GameObject: {fileID: 1197384098}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1477,19 +1478,65 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197384098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 465995188}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 8157806}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1220093652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1220093654}
+  - component: {fileID: 1220093653}
+  m_Layer: 0
+  m_Name: LetterEditor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1220093653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220093652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a36ad0864764cc98d42ff651da25bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LetterEditor
+  text: {fileID: 465995189}
+  cam: {fileID: 1808009718}
+--- !u!4 &1220093654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220093652}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -198.0792, y: -104.47288, z: -55.4332}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294352007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2379,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1808009719}
-  - {fileID: 1197384102}
   - {fileID: 1556682361}
   - {fileID: 963454361}
   - {fileID: 1294352009}
+  - {fileID: 1220093654}
