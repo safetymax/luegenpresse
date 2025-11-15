@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private List<string> currentBadWordList = new List<string>(); // contiously expanded with new bad words to black out (if we arent filing to supervisor ofc)
     public List<string> badWordsGlobal = new List<string>
     {
-        "Ehc",
+        "ehc",
         "starvation",
         "famine",
         "revolution",
@@ -279,6 +279,16 @@ public class GameManager : MonoBehaviour
             }
         }
             
+    }
+    
+    public List<string> GetSupervisorTags()
+    {
+        return supervisorDailyTags;
+    }
+
+    public List<string> GetCurrentBadWords()
+    {
+        return currentBadWordList;
     }
 
 
