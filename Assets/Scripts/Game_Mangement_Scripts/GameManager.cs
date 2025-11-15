@@ -93,90 +93,94 @@ public class GameManager : MonoBehaviour
     // returns score between [-10,10] depending on criteria
     public int evaluateFilingOfLetter(Letter letter, int wrongAmountBlacked)
     {
+        int badWords = 0;
         int amountBlacked = 0;
         amountBlacked+= Regex.Matches(letter.getLetterContent(), "$").Count; //words that were bad and blacked correctly
+        badWords += Regex.Matches(letter.getLetterContent(), "$").Count;
         amountBlacked+= Regex.Matches(letter.getLetterContent(), "€").Count; //words that were good but blacked
 
-        //returns either -1 for incorrent or 1 for corrent filing
-        int actualFilingIndex = letter.getActualFilingIndex(); // 
-
-        if (letter.getTags().Contains(positiveTags[0]))  // letter should be filed to the press also nothing should have been blacked
+        foreach (String badWord in GameManager.Instance.badWordsGlobal)
         {
-            if(letter.getActualFilingIndex() == 0 && amountBlacked==0)
+            badWords += Regex.Matches(letter.getLetterContent, badWord).Count; // wie oft das schlechte noch drinnen ist
+        }
+
+        bool isSuperVisorLetter = false;
+        // check if supervisor letter
+        foreach(string supervisorTag in supervisorTagsOfTheDay)
+        {
+            if (letter.getTags().Contains(supervisorTag))
             {
-                // correctly filed and nothing blacked
-                return 10; 
-            } else if(letter.getActualFilingIndex() == 0 && amountBlacked > 0)
+                isSuperVisorLetter = true;
+                break;
+            }
+        }
+
+        if (isSuperVisorLetter) 
+        {
+            // We need to file to supervisor without blacking
+            if(letter.getActualFilingIndex() == 2 && amountBlacked == 0)
             {
-                // correctly filed but something was blacked
-                return 0;
-            }else if(letter.getActualFilingIndex() != 0 && amountBlacked ==0 )
+                return 10;
+            }else if ((letter.getActualFilingIndex() == 2 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 2 && amountBlacked == 0 )) 
             {
-                // wrongly filed but nothing was blacked at least
                 return 0;
             }
             else
             {
-                //wrongly filed and wrongly blacked
                 return -10;
             }
         }
         else
         {
-            bool isSuperVisorLetter = false;
-            // check if supervisor letter
-            foreach(string supervisorTag in supervisorTagsOfTheDay)
+            if(badWords > 0) 
             {
-                if (letter.getTags().Contains(supervisorTag))
+                // We need to file normally and apply blacking to all bad words
+                if(letter.getActualFilingIndex() == 1 && wrongAmountBlacked == 0)
                 {
-                    isSuperVisorLetter = true;
-                    break;
-                }
-            }
-
-            if (isSuperVisorLetter) // we should file correctly to supervisor and also not black anything
-            {
-                if(letter.getActualFilingIndex() == 2 && amountBlacked==0)
+                    return 10;
+                }else if ((letter.getActualFilingIndex() == 1 && wrongAmountBlacked != 0 ) || (letter.getActualFilingIndex() != 1 && wrongAmountBlacked == 0 )) 
                 {
-                    // correctly filed and nothing blacked
-                    return 10; 
-                } else if(letter.getActualFilingIndex() == 2 && amountBlacked > 0)
-                {
-                    // correctly filed but something was blacked
-                    return 0;
-                }else if(letter.getActualFilingIndex() != 0 && amountBlacked == 0)
-                {
-                    // wrongly filed and nothing blacked
                     return 0;
                 }
                 else
                 {
-                    // wrongly filed and something was blacked
                     return -10;
                 }
             }
-            else   // The letter is a simple redirection and we need to check how much was correctly/wrongly blacked
+            else
             {
-                if(letter.getActualFilingIndex() == 1 && wrongAmountBlacked==0)
+                if (letter.getTags().Contains("positive"))
                 {
-                    // correctly filed and nothing was wrongly blacked
-                    return 10; 
-                } else if (letter.getActualFilingIndex() == 1 && wrongAmountBlacked > 0)
-                {
-                    //correclty filed but some was wrongly blacked
-                    return 0;
-                }
-                else if (letter.getActualFilingIndex() != 1 && wrongAmountBlacked == 0)
-                {
-                    //wrongly filed but all blacking was right
-                    return 0;
+                    // we need to file to press with no blacking
+                    if(letter.getActualFilingIndex() == 0 && amountBlacked == 0)
+                    {
+                        return 10;
+                    }else if ((letter.getActualFilingIndex() == 0 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 0 && amountBlacked == 0 )) 
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return -10;
+                    }
                 }
                 else
                 {
-                    // wrongly filed and blacking was wrong
-                    return -10;
+                    // we need to file normally with no blacking
+                    if(letter.getActualFilingIndex() == 1 && amountBlacked == 0)
+                    {
+                        return 10;
+                    }else if ((letter.getActualFilingIndex() == 1 && amountBlacked != 0 ) || (letter.getActualFilingIndex() != 1 && amountBlacked == 0 )) 
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return -10;
+                    }
                 }
             }
         }
+            
     }
 }
