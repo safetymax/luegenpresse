@@ -909,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterEditor
   cam: {fileID: 1808009718}
   letterPrefab: {fileID: 8147068302116197179, guid: a09acc7d2f80249e8b121c2e6064349a, type: 3}
+  evalLetterPrefab: {fileID: 8147068302116197179, guid: 553d4f35c44694178acab0146d6c6640, type: 3}
   letterParent: {fileID: 963454361}
   markingPrefab: {fileID: 6452380840036512341, guid: 710a104f411c0f54fb8672062cbdfa92, type: 3}
 --- !u!4 &1220093654
@@ -1330,9 +1331,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.6037037
+    width: 0.20625001
+    height: 0.20625
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

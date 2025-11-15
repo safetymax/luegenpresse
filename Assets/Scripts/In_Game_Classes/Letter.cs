@@ -7,14 +7,16 @@ using System.Text.RegularExpressions;
 public class Letter 
 {
     private int actualFilingIndex;
-    private string letterContent;
-    private List<string> tags;
+    protected string letterContent;
+    protected List<string> tags;
     [SerializeField] private int filingMalus;
 
     public Letter(LetterData data)
     {
-        this.letterContent = data.text;
-        this.tags = data.tags;
+        if (data != null){
+            this.letterContent = data.text;
+            this.tags = data.tags;
+        }
     }
 
     public int getActualFilingIndex()
@@ -52,4 +54,26 @@ public class Letter
         return letterContent;
     }
 }
+
+public class ResultLetter : Letter
+{
+    private int wordsWronglyBlackedOrMissed;
+    private int wrongFilingCount;
+
+    public ResultLetter(int wordsWronglyBlackedOrMissed, int wrongFilingCount)
+        : base(new LetterData { text = "", tags = new List<string>() })
+    {
+        this.wordsWronglyBlackedOrMissed = wordsWronglyBlackedOrMissed;
+        this.wrongFilingCount = wrongFilingCount;
+        this.letterContent =
+            $"<b>Work Day Summary</b>\n\n" +
+            $"Wrongly blacked / missed words: {wordsWronglyBlackedOrMissed}\n" +
+            $"Incorrectly filed letters: {wrongFilingCount}\n" +
+            $"Current Total score: {GameManager.Instance.getTotalScore()}\n\n";
+
+        //ResultLetter has no tags
+        this.tags = new List<string>();
+    }
+}
+
 
