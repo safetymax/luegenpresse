@@ -128,7 +128,7 @@ public class LetterEditor : MonoBehaviour
                                 //get simpleAnimator of letter, play slide out to bottom animation and wait for it to finish
                                 activeLetterObject.GetComponent<simpleAnimator>().playAnim(activeLetterObject.transform.position, new Vector3(activeLetterObject.transform.position.x, -500, -10), 1f, AnimationType.EaseInOut);
                                 Invoke("SendLetterDelayed", 1f);
-                                SendLetter(stampIndex);
+                                //SendLetter(stampIndex);
                             }
                             break;
                     }
@@ -216,12 +216,11 @@ public class LetterEditor : MonoBehaviour
         return (dist <= maxDistancePixels) ? wordIndex : -1;
     }
 
-    void SendLetterDelayed()
+    IEnumerator SendLetterDelayed()
     {
-        // Just a wrapper to call SendLetter after delay
-        // Needed for Invoke
-        //SendLetter(FindObjectOfType<mouseCursorManager>().stampIndex);
-        return;
+        //wait for 1 second
+        yield return new WaitForSeconds(1f);
+        SendLetter(FindObjectOfType<mouseCursorManager>().stampIndex);
     }
 
 }
