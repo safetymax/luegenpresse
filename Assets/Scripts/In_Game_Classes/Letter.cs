@@ -41,6 +41,11 @@ public class Letter
         return this.letterContent;
     }
 
+    public List<string> getBadWords()
+    {
+        return this.badWords;
+    }
+
     public int Evaluate()
     {
         //check if filed correctly

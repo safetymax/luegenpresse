@@ -77,11 +77,16 @@ public class LetterEditor : MonoBehaviour
                                             //replacing word with "$" characters
                                             //TODO: add "€" for wrong words
                                             Debug.Log("Replacing word");
+
+                                            char toReplaceWith = '€';
+                                            if (letter.getBadWords().Contains(word.ToLower()))
+                                                toReplaceWith = '$';
+                                            
                                             int startIndex = wordInfo.firstCharacterIndex;
                                             int length = wordInfo.characterCount;
                                             string newText = text.text;
                                             newText = newText.Remove(startIndex+10, length); // frage: +10 wegen dem mspace ding?
-                                            newText = newText.Insert(startIndex+10, new string('$', length));
+                                            newText = newText.Insert(startIndex+10, new string(toReplaceWith, length));
                                             text.text = newText;
                                         }
                                     }
