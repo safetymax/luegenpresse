@@ -128,6 +128,7 @@ public class LetterEditor : MonoBehaviour
                                 //get simpleAnimator of letter, play slide out to bottom animation and wait for it to finish
                                 activeLetterObject.GetComponent<simpleAnimator>().playAnim(activeLetterObject.transform.position, new Vector3(activeLetterObject.transform.position.x, -500, -10), 1f, AnimationType.EaseInOut);
                                 Invoke("SendLetterDelayed", 1f);
+                                this.state = State.Closing;
                                 //SendLetter(stampIndex);
                             }
                             break;
