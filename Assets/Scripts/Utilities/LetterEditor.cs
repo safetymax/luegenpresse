@@ -216,7 +216,7 @@ public class LetterEditor : MonoBehaviour
         return (dist <= maxDistancePixels) ? wordIndex : -1;
     }
 
-    IEnumerator SendLetterDelayed()
+    System.Collections.IEnumerator SendLetterDelayed()
     {
         //wait for 1 second
         yield return new WaitForSeconds(1f);
