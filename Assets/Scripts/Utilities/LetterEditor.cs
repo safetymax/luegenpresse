@@ -42,6 +42,17 @@ public class LetterEditor : MonoBehaviour
                     string word = wordInfo.GetWord();
 
                     Debug.Log("Clicked word: " + word);
+
+                    if(word.ToLower() != null)
+                    {
+                        Debug.Log("Replacing word");
+                        int startIndex = wordInfo.firstCharacterIndex;
+                        int length = wordInfo.characterCount;
+                        string newText = text.text;
+                        newText = newText.Remove(startIndex+10, length);
+                        newText = newText.Insert(startIndex+10, new string('$', length));
+                        text.text = newText;
+                    }
                 }
             }
         }
