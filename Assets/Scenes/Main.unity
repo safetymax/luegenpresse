@@ -393,7 +393,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <mspace=14>Du $$$sohn ich werde dich $$$ und deine Mutter $$$$$$</mspace>
+  m_text: "<mspace=14>Du $$$sohn ich werde dich \u20AC\u20AC\u20AC und deine Mutter
+    $$$$$$</mspace>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2577a9e3b088df76baf3f0dfce14fea2, type: 2}
   m_sharedMaterial: {fileID: -2818775752686695718, guid: 2577a9e3b088df76baf3f0dfce14fea2, type: 2}
