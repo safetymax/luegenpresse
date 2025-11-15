@@ -854,9 +854,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.63796294
-    width: 0.13645834
-    height: 0.13645834
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f17b47047b62984ab11d8b64efb493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mouseCursorManagerMainMenu
-  cursorTexture: {fileID: 2800000, guid: a0e442422ff4f9ee299469676a10aea0, type: 3}
+  cursorTexture: {fileID: 0}
 --- !u!4 &1363221837
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
   cam: {fileID: 1098893054}
   hitMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!212 &1777025112
 SpriteRenderer:
   m_ObjectHideFlags: 0

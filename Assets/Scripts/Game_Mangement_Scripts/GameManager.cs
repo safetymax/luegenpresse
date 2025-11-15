@@ -157,9 +157,11 @@ public class GameManager : MonoBehaviour
         return false; 
     }
 
-    // returns score between [-10,10] depending on criteria
+    // returns money earned with this letter, max 10 Yen
     public int evaluateFilingOfLetter(Letter letter, int wrongAmountBlacked)
     {
+        int moneyEarned = 10;
+        
         int badWords = 0;
         int amountBlacked = 0;
         amountBlacked+= Regex.Matches(letter.getLetterContent(), "$").Count; //words that were bad and blacked correctly
@@ -187,21 +189,21 @@ public class GameManager : MonoBehaviour
             // We need to file to supervisor without blacking
             if(letter.getActualFilingIndex() == 2 && amountBlacked == 0)
             {
-                return 10;
+                return moneyEarned;
             }else if (letter.getActualFilingIndex() == 2 && amountBlacked != 0 ) 
             {
                 wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
-                return 0;
+                return moneyEarned - wrongAmountBlacked;
             }else if (letter.getActualFilingIndex() != 2 && amountBlacked == 0 )
             {
                 wrongFilingCount++;
-                return 0;
+                return moneyEarned-5;
             }
             else
             {
                 wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
                 wrongFilingCount++;
-                return -10;
+                return moneyEarned - wrongAmountBlacked - 5;
             }
         }
         else
@@ -211,21 +213,21 @@ public class GameManager : MonoBehaviour
                 // We need to file normally and apply blacking to all bad words
                 if(letter.getActualFilingIndex() == 1 && wrongAmountBlacked == 0)
                 {
-                    return 10;
+                    return moneyEarned;
                 }else if (letter.getActualFilingIndex() == 1 && wrongAmountBlacked != 0   ) 
                 {
                     wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
-                    return 0;
+                    return moneyEarned - wrongAmountBlacked;
                 } else if (letter.getActualFilingIndex() != 1 && wrongAmountBlacked == 0)
                 {
                     wrongFilingCount++;
-                    return 0;
+                    return moneyEarned - 5;
                 }
                 else
                 {
                     wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
                     wrongFilingCount++;
-                    return -10;
+                    return moneyEarned - wrongAmountBlacked - 5;
                 }
             }
             else
@@ -235,21 +237,21 @@ public class GameManager : MonoBehaviour
                     // we need to file to press with no blacking
                     if(letter.getActualFilingIndex() == 0 && amountBlacked == 0)
                     {
-                        return 10;
+                        return moneyEarned;
                     }else if (letter.getActualFilingIndex() == 0 && amountBlacked != 0 ) 
                     {
                         wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
-                        return 0;
+                        return moneyEarned - wrongAmountBlacked;
                     }else if (letter.getActualFilingIndex() != 0 && amountBlacked == 0 )
                     {
                         wrongFilingCount++;
-                        return 0;
+                        return moneyEarned - 5;
                     }
                     else
                     {
                         wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
                         wrongFilingCount++;
-                        return -10;
+                        return moneyEarned - wrongAmountBlacked - 5;
                     }
                 }
                 else
@@ -257,21 +259,21 @@ public class GameManager : MonoBehaviour
                     // we need to file normally with no blacking
                     if(letter.getActualFilingIndex() == 1 && amountBlacked == 0)
                     {
-                        return 10;
+                        return moneyEarned;
                     }else if (letter.getActualFilingIndex() == 1 && amountBlacked != 0  ) 
                     {
                         wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
-                        return 0;
+                        return moneyEarned - wrongAmountBlacked;
                     }else if (letter.getActualFilingIndex() != 1 && amountBlacked == 0)
                     {
                         wrongFilingCount++;
-                        return 0;
+                        return moneyEarned - 5;
                     }
                     else
                     {
                         wordsWronglyBlackedOrMissed+=wrongAmountBlacked;
                         wrongFilingCount++;
-                        return -10;
+                        return moneyEarned - wrongAmountBlacked - 5;
                     }
                 }
             }
