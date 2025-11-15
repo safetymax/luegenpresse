@@ -218,9 +218,8 @@ public class LetterEditor : MonoBehaviour
 
     System.Collections.IEnumerator SendLetterDelayed()
     {
-        //wait for 1 second
-        yield return new WaitForSeconds(1f);
         SendLetter(FindObjectOfType<mouseCursorManager>().stampIndex);
+        yield return null;
     }
 
 }
