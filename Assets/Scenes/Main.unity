@@ -595,7 +595,7 @@ MonoBehaviour:
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: d6916fa1b166b529c92649e35dec8358, type: 3}
   changeCursor: 1
-  cursorIndex: 2
+  cursorIndex: 3
 --- !u!65 &899698591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -856,7 +856,7 @@ MonoBehaviour:
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: e629faf2e324d8661bc409bf03b7d98b, type: 3}
   changeCursor: 1
-  cursorIndex: 2
+  cursorIndex: 4
 --- !u!65 &1135620424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -910,6 +910,7 @@ MonoBehaviour:
   cam: {fileID: 1808009718}
   letterPrefab: {fileID: 8147068302116197179, guid: a09acc7d2f80249e8b121c2e6064349a, type: 3}
   letterParent: {fileID: 963454361}
+  markingPrefab: {fileID: 6452380840036512341, guid: 710a104f411c0f54fb8672062cbdfa92, type: 3}
 --- !u!4 &1220093654
 Transform:
   m_ObjectHideFlags: 0
@@ -959,6 +960,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 23bcaf29220b6caf3895ea6afd32943c, type: 3}
   - {fileID: 2800000, guid: 59a0e07e8a1e4fe94bdeb829e9ee3b8f, type: 3}
   currentCursorIndex: -1
+  stampIndex: 0
 --- !u!4 &1294352009
 Transform:
   m_ObjectHideFlags: 0
@@ -1328,9 +1330,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 1.626401
-    width: 0.5462185
-    height: 0.5463885
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
