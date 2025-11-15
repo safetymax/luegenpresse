@@ -311,7 +311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You are a simple reporter: Reporter - Grade III in the General Directorate
+  m_text: "You are a simple reporter: Reporter, Grade III in the General Directorate
     of Information Security actually! \n\nYour task is simple: protect the capital
     from informational contamination by \u2018correcting\u2019 and redirecting letters
     that come into your office!\n\nYour supervisor will give you a list of bad words
@@ -321,7 +321,7 @@ MonoBehaviour:
     send them to the press! The people have to know how well the state is doing!
     If not, feel free to send it to the original recipient after blacking the letter
     out.\n\nIf any of that sounds like suspicious activity to you, don\u2019t worry
-    about it\u2026 everything is fine!"
+    about it... everything is fine!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2577a9e3b088df76baf3f0dfce14fea2, type: 2}
   m_sharedMaterial: {fileID: 7318541588509430803, guid: 2577a9e3b088df76baf3f0dfce14fea2, type: 2}
@@ -1103,10 +1103,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.17500001
     y: 0
-    width: 1
-    height: 1
+    width: 0.41388893
+    height: 0.41388887
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
