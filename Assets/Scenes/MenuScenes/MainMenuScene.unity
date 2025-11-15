@@ -854,9 +854,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.63796294
+    width: 0.13645834
+    height: 0.13645834
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1532,6 +1532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfe1d15b8380423397f05bab4b4de64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  pointerArm: {fileID: 1777025110}
+  swipingArm: {fileID: 13120056}
 --- !u!1 &2023123723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f90cbbcad11e4881866a7e79402a1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  shiftTimeAmountInSeconds: 0
+  timeLeft: 0
   badWordsGlobal:
   - Ehc
   - starvation
