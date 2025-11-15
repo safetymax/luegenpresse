@@ -3,6 +3,7 @@ using UnityEngine;
 public class mouseCursorManager : MonoBehaviour
 {
     [SerializeField] private Texture2D[] cursorTextures;
+    public int currentCursorIndex = -1;
 
 
     private void Start()
@@ -10,6 +11,7 @@ public class mouseCursorManager : MonoBehaviour
         // Set default cursor
         //setCursor(2);
     }
+
     public void setCursor(int index)
     {
         /*
@@ -36,5 +38,6 @@ public class mouseCursorManager : MonoBehaviour
                 Debug.LogWarning("Invalid cursor index");
                 break;
         }
+        currentCursorIndex = index;
     }
 }

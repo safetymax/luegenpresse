@@ -456,6 +456,8 @@ MonoBehaviour:
   speed: 10
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: 0ffe63debacb9a579ac34e603e459cc9, type: 3}
+  changeCursor: 1
+  cursorIndex: 1
 --- !u!65 &460834795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1018,6 +1020,8 @@ MonoBehaviour:
   speed: 10
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: d6916fa1b166b529c92649e35dec8358, type: 3}
+  changeCursor: 1
+  cursorIndex: 2
 --- !u!65 &899698591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1368,6 +1372,8 @@ MonoBehaviour:
   speed: 10
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: e629faf2e324d8661bc409bf03b7d98b, type: 3}
+  changeCursor: 1
+  cursorIndex: 2
 --- !u!65 &1135620424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1656,6 +1662,8 @@ MonoBehaviour:
   speed: 10
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: ec6002b24b9ea4fc7888877b9879b06c, type: 3}
+  changeCursor: 1
+  cursorIndex: 0
 --- !u!212 &1494216674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2353,6 +2361,8 @@ MonoBehaviour:
   speed: 10
   outlined: 1
   outlineSprite: {fileID: 21300000, guid: 5e16ad6c171deaef9bdbe89d724863f0, type: 3}
+  changeCursor: 1
+  cursorIndex: 2
 --- !u!65 &2068445084
 BoxCollider:
   m_ObjectHideFlags: 0

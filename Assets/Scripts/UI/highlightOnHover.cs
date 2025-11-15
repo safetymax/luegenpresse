@@ -14,6 +14,10 @@ public class HoverRaycast : MonoBehaviour
     private Vector3 targetPos;
     private Camera cam;
 
+    //for cursor change
+    public bool changeCursor = false;
+    public int cursorIndex = -1;
+
     void Start()
     {
         cam = Camera.main;
@@ -76,5 +80,30 @@ public class HoverRaycast : MonoBehaviour
                 }
             }
         }
+
+
+        //cursor change if clicked
+        if (changeCursor)
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                Vector2 mousePos = Mouse.current.position.ReadValue();
+                Ray ray2 = cam.ScreenPointToRay(mousePos);
+                if (Physics.Raycast(ray2, out RaycastHit hit2))
+                {
+                    if (hit2.transform == transform)
+                    {
+                        mouseCursorManager cursorManager = FindObjectOfType<mouseCursorManager>();
+                        if (cursorManager != null)
+                        {
+                            cursorManager.setCursor(cursorIndex);
+                        
+                        }
+                    }
+                }
+            }
+        }
+        
     }
+
 }

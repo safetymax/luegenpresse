@@ -37,7 +37,7 @@ public class LetterEditor : MonoBehaviour
                 int wordIndex = TMP_TextUtilities.FindIntersectingWord(text, mousePos, cam);
                 //Debug.Log(wordIndex);
 
-                if (wordIndex != -1)
+                if (wordIndex != -1 && FindObjectOfType<mouseCursorManager>().currentCursorIndex == 1) //1 is marker cursor
                 {
                     TMP_WordInfo wordInfo = text.textInfo.wordInfo[wordIndex];
                     string word = wordInfo.GetWord();
