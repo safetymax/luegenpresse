@@ -4,12 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 public class LetterEditor : MonoBehaviour
 {
     private enum State
     {
         Idle,Opening,Correcting,Closing,Evaluating
     }
+
+    [SerializeField] private TMP_Text tagsNote;
+    [SerializeField] private TMP_Text badWordsNote;
+
 
     private Letter letter;
     private State state = State.Idle;
@@ -31,6 +38,15 @@ public class LetterEditor : MonoBehaviour
     void Start() {
         // TODO: Remove once gamemanager is fully integrated for all states
         this.state = State.Idle;
+        StringBuilder sbbw = new StringBuilder();
+        foreach (string bw in GameManager.Instance.GetCurrentBadWords())
+        {
+            sbbw.Append(bw+ ", ");
+        }
+        badWordsNote.text = sbbw.ToString();
+        
+        tagsNote.text = GameManager.Instance.GetSupervisorTags().First();
+        
     }
 
     void Update()
