@@ -730,6 +730,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2002592690}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: playDingSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &705042786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1013,7 @@ GameObject:
   - component: {fileID: 1098893054}
   - component: {fileID: 1098893053}
   - component: {fileID: 1098893052}
+  - component: {fileID: 1098893056}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: MainCamera
@@ -1103,10 +1116,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.17500001
+    x: 0
     y: 0
-    width: 0.41388893
-    height: 0.41388887
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1142,6 +1155,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1098893056
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098893051}
+  m_Enabled: 1
 --- !u!1 &1110541663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1440,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1434808244}
         m_TargetAssemblyTypeName: clipboardAnim, Assembly-CSharp
         m_MethodName: animrein
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2002592690}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: playDingSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2045,6 +2078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
   pointerArm: {fileID: 1777025110}
   swipingArm: {fileID: 13120056}
+  dingSound: {fileID: 8300000, guid: e935fe6d2537c997286bc95d9156ed56, type: 3}
 --- !u!1 &2023123723
 GameObject:
   m_ObjectHideFlags: 0

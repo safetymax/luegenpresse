@@ -5,6 +5,7 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] private GameObject pointerArm;
     [SerializeField] private GameObject swipingArm;
+    [SerializeField] private AudioClip dingSound;
     // OnClick of the clock in button  
     public void startGame()
     {
@@ -20,5 +21,10 @@ public class MainMenuController : MonoBehaviour
     {
         GameManager.Instance.init();
         SceneManager.LoadScene("InstructionScene");
+    }
+
+    public void playDingSound()
+    {
+        AudioSource.PlayClipAtPoint(dingSound, Camera.main.transform.position);
     }
 }
