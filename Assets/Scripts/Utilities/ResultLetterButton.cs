@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResultLetterButton : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class ResultLetterButton : MonoBehaviour
         LetterEditor editor = FindObjectOfType<LetterEditor>();
         GameManager.Instance.changeDay();
         editor.CloseActiveLetter();
+        SceneManager.LoadScene("MidDayDialogScene");
 
     }
 }
