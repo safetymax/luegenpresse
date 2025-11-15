@@ -41,7 +41,7 @@ public class Letter
         return this.letterContent;
     }
 
-    public int Evaluate(List<String> badWords)
+    public int Evaluate()
     {
         //check if filed correctly
         if (this.actualFilingIndex != this.correctFilingIndex)
@@ -51,7 +51,7 @@ public class Letter
         }
 
         int wrongAmountBlacked = 0;
-        foreach (String badWord in badWords)
+        foreach (String badWord in this.badWords)
         {
             wrongAmountBlacked += Regex.Matches(letterContent, badWord).Count; // wie oft das schlechte noch drinnen ist
         }
@@ -60,4 +60,9 @@ public class Letter
 
         return wrongAmountBlacked * blackingMalus;
     }
+    public string toString()
+    {
+        return letterContent + ", Correct Filing Index: " + correctFilingIndex + ", Badwords list: " + badWords;
+    }
 }
+

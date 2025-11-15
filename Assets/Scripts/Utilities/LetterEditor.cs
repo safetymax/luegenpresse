@@ -14,12 +14,20 @@ public class LetterEditor : MonoBehaviour
     private Letter letter;
     private State state = State.Idle;
     
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Camera cam;
 
+    [Header("Letter Prefab References")]
+    [SerializeField] private GameObject letterPrefab;
+    [SerializeField] private Transform letterParent;
+    private GameObject activeLetterObject;// Current spawned prefab instance
+    private TextMeshProUGUI text;// TMP inside prefab
+
     void Start() {
-        // TODO: Remove once gamemanager works
+        // TODO: Remove once gamemanager is fully integrated for all states
         this.state = State.Correcting;
+
+        letter = GameManager.Instance.getNextLetter();
+        SpawnNewLetterObject(letter);
     }
 
     void Update()
@@ -28,16 +36,18 @@ public class LetterEditor : MonoBehaviour
         {
             case State.Idle:
             {
-
+                // TODO: Add functionality to open letter
                 break;
             }
             case State.Opening:
             {
+                // TOOD: this is a intermediate step that just plays the animation?
                 break;
             }
             case State.Correcting:
             {
-                //if we are correcting, we can black out and file the letter
+                // We are correcting, we can black out and file the letter
+
                 if(Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -88,12 +98,30 @@ public class LetterEditor : MonoBehaviour
             }
         }
     }
+    private void SpawnNewLetterObject(Letter newLetter)
+    {
+        // Destroy old letter gameObject
+        if (activeLetterObject != null)
+            Destroy(activeLetterObject);
 
+        activeLetterObject = Instantiate(letterPrefab, letterParent);
+        text = activeLetterObject.GetComponentInChildren<TextMeshProUGUI>();
+        if (text == null)
+        {
+            Debug.LogError("Prefab missing TextMeshProUGUI component!");
+            return;
+        }
+        text.text = newLetter.getLetterContent();
+    }
     void SendLetter(int filingIndex)
     {
         letter.setActualFilingIndex(filingIndex);
-        GameManager.Instance.updateScore(letter.Evaluate(new List<string>()));
-        this.letter = GameManager.Instance.getNextLetter();
+        GameManager.Instance.updateScore(letter.Evaluate());
+
+        letter = GameManager.Instance.getNextLetter();
+
+        SpawnNewLetterObject(letter);
+
         this.state = State.Idle;
     }
 }

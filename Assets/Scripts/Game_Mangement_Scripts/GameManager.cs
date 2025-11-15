@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         currentDayIndex = 1;
         currentScore = 0;
         lettersOfTheDay = LetterGenerator.Instance.generateLetters(2);
-        Debug.Log("Letters of the first day: " + lettersOfTheDay);
+        Debug.Log("Letters 0: " + lettersOfTheDay[0].toString());
+        Debug.Log("Letters 1: " + lettersOfTheDay[1].toString());
     }
     public void updateScore(int score)
     {
