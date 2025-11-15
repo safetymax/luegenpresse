@@ -848,7 +848,7 @@ Transform:
   m_GameObject: {fileID: 827316724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.6, y: -79.4, z: -9}
+  m_LocalPosition: {x: 62.6, y: -79.4, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -861,7 +861,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827316724}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1200,7 +1200,7 @@ Transform:
   m_GameObject: {fileID: 1119401738}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.6, y: -79.4, z: -12}
+  m_LocalPosition: {x: 62.6, y: -79.4, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1213,7 +1213,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119401738}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7ad3300d532251462ac98c5bb41d1d19, type: 3}
   - {fileID: 2800000, guid: 23bcaf29220b6caf3895ea6afd32943c, type: 3}
   - {fileID: 2800000, guid: 59a0e07e8a1e4fe94bdeb829e9ee3b8f, type: 3}
+  currentCursorIndex: -1
 --- !u!4 &1294352009
 Transform:
   m_ObjectHideFlags: 0
