@@ -147,6 +147,8 @@ public class LetterEditor : MonoBehaviour
     {
 
         activeLetterObject = Instantiate(letterPrefab, letterParent);
+        //animate letter to slide from -500 to 0 y position
+        activeLetterObject.GetComponent<simpleAnimator>().playAnim(new Vector3(0, -500, -10), new Vector3(0, 0, -10), 1f, AnimationType.EaseInOut);
         text = activeLetterObject.GetComponentInChildren<TextMeshProUGUI>();
         if (text == null)
         {
@@ -212,6 +214,14 @@ public class LetterEditor : MonoBehaviour
         float dist = Vector2.Distance(mousePos, wordCenterScreen);
 
         return (dist <= maxDistancePixels) ? wordIndex : -1;
+    }
+
+    void SendLetterDelayed()
+    {
+        // Just a wrapper to call SendLetter after delay
+        // Needed for Invoke
+        //SendLetter(FindObjectOfType<mouseCursorManager>().stampIndex);
+        return;
     }
 
 }
