@@ -1000,54 +1000,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1294352007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1294352009}
-  - component: {fileID: 1294352008}
-  m_Layer: 0
-  m_Name: MouseCursorManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1294352008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294352007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7e5d084a6735064aabceb2e3e046cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::mouseCursorManager
-  cursorTextures:
-  - {fileID: 2800000, guid: 7ad3300d532251462ac98c5bb41d1d19, type: 3}
-  - {fileID: 2800000, guid: 23bcaf29220b6caf3895ea6afd32943c, type: 3}
-  - {fileID: 2800000, guid: 59a0e07e8a1e4fe94bdeb829e9ee3b8f, type: 3}
---- !u!4 &1294352009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294352007}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 178.05588, y: 17.56812, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494216668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,8 +1353,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1665,4 +1617,3 @@ SceneRoots:
   - {fileID: 1197384102}
   - {fileID: 1556682361}
   - {fileID: 963454361}
-  - {fileID: 1294352009}
