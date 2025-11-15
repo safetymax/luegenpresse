@@ -9,6 +9,25 @@ public class GameManager : MonoBehaviour
     private int currentDayIndex;
     private int currentScore;
     private List<Letter> lettersOfTheDay;
+    public List<string> badWordsGlobal = new List<string>
+    {
+        "Ehc",
+        "starvation",
+        "famine",
+        "revolution",
+        "peasant",
+        "bombing",
+        "bombs",
+        "bombings",
+        "foreign",
+        "quota",
+        "11",
+        "casino",
+        "weather",
+        "airstrike",
+        "shortfalls",
+        "mineral"
+    };
 
     private void Awake() {
         if(Instance!=null && Instance != this)
@@ -47,4 +66,22 @@ public class GameManager : MonoBehaviour
             return ret;
         }
     }
+
+    public bool isABadWord(string word)
+    {
+        if (string.IsNullOrEmpty(word)) return false; 
+
+        word = word.ToLower();
+
+        foreach (string badWord in badWordsGlobal)
+        {
+            if (!string.IsNullOrEmpty(badWord) && word.Contains(badWord.ToLower()))
+            {
+                return true;
+            }
+        }
+
+        return false; 
+    }
+
 }

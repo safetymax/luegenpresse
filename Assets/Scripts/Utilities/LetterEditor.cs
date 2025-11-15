@@ -22,6 +22,8 @@ public class LetterEditor : MonoBehaviour
     private GameObject activeLetterObject;// Current spawned prefab instance
     private TextMeshProUGUI text;// TMP inside prefab
 
+    private int wc; // fuckass bug fix for taking care of fully blacked out letter
+    
     [SerializeField] private GameObject markingPrefab;
 
     void Start() {
@@ -53,57 +55,47 @@ public class LetterEditor : MonoBehaviour
                 if(Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     Vector2 mousePos = Mouse.current.position.ReadValue();
-                    switch (FindObjectOfType<mouseCursorManager>()
-                                .currentCursorIndex) // Different actions based on what cursor we have selected
+                    int charIndex = GetNearestCharacterWithBuffer(text, mousePos, cam, 20.0f);
+                    switch (FindObjectOfType<mouseCursorManager>().currentCursorIndex) // Different actions based on what cursor we have selected
                     {
-                        case -1:
-                        {
-                            break;
-                        } // Normal cursor, cant use here
-                        case 0:
-                        {
-                            break;
-                        } // Letter opener, cant use here
+                        case -1: {break;} // Normal cursor, cant use here
+                        case 0: {break;} // Letter opener, cant use here
                         case 1: // WE ARE USING THE MARKER
-                        {
-                            int charIndex = GetNearestCharacterWithBuffer(text, mousePos, cam, 20.0f);
-                            if (charIndex != -1)
                             {
-                                // get word index
-                                int wordIndex = GetNearestWordWithBuffer(text, mousePos, cam, 20.0f);
-                                //Debug.Log(wordIndex);
-                                if (wordIndex != -1 && FindObjectOfType<mouseCursorManager>().currentCursorIndex == 1)
-                                {
-                                    // WE ARE USING THE MARKER
-                                    TMP_WordInfo wordInfo = text.textInfo.wordInfo[wordIndex];
-                                    string word = wordInfo.GetWord();
-
-                                    //this is clicked on word
-                                    Debug.Log("Clicked word: " + word);
-
-                                    if (word.ToLower() != null)
+                                if(wc >= 1){
+                                    if (charIndex != -1)
                                     {
-                                        //replacing word with "$" characters
-                                        //TODO: add "€" for wrong words
-                                        Debug.Log("Replacing word");
+                                        // get word index
+                                        int wordIndex = GetNearestWordWithBuffer(text, mousePos, cam, 25.0f);
+                                        //Debug.Log(wordIndex);
+                                        if (wordIndex != -1 && FindObjectOfType<mouseCursorManager>().currentCursorIndex == 1) 
+                                        {
+                                            // WE ARE USING THE MARKER
+                                            TMP_WordInfo wordInfo = text.textInfo.wordInfo[wordIndex];
+                                            string word = wordInfo.GetWord();
 
-                                        char toReplaceWith = '€';
-                                        if (letter.getBadWords().Contains(word.ToLower()))
-                                            toReplaceWith = '$';
+                                        //this is clicked on word
+                                        Debug.Log("Clicked word: " + word);
 
-                                        int startIndex = wordInfo.firstCharacterIndex;
-                                        int length = wordInfo.characterCount;
-                                        string newText = text.text;
-                                        newText = newText.Remove(startIndex + 10,
-                                            length); // frage: +10 wegen dem mspace ding?
-                                        newText = newText.Insert(startIndex + 10, new string(toReplaceWith, length));
-                                        text.text = newText;
+                                            if(word.ToLower() != null)
+                                            {
+                                                //replacing word with "$" characters
+                                                //TODO: add "€" for wrong words
+                                                Debug.Log("Replacing word");
+                                                int startIndex = wordInfo.firstCharacterIndex;
+                                                int length = wordInfo.characterCount;
+                                                string newText = text.text;
+                                                newText = newText.Remove(startIndex+10, length);
+                                                newText = newText.Insert(startIndex+10, new string(
+                                                    (GameManager.Instance.badWordsGlobal.Contains(word.ToLower()) ? '$' : '€'), length));
+                                                text.text = newText;
+                                                wc-=1;
+                                            }
+                                        }
                                     }
                                 }
+                                break;
                             }
-
-                            break;
-                        }
 
                         case 2: // WE ARE USING THE STAMP
                             Debug.Log("stamp click");
@@ -150,6 +142,8 @@ public class LetterEditor : MonoBehaviour
             return;
         }
         text.text = "<mspace=5>" + newLetter.getLetterContent() + "</mspace>";
+        text.ForceMeshUpdate();
+        wc = text.textInfo.wordCount;
     }
     void SendLetter(int filingIndex)
     {
@@ -163,10 +157,9 @@ public class LetterEditor : MonoBehaviour
         this.state = State.Idle;
     }
 
-    // HELPER FUNCTIONS
+    // --- HELPER FUNCTIONS ---
     int GetNearestCharacterWithBuffer(TMP_Text text, Vector2 mousePos, Camera cam, float maxDistancePixels)
     {
-        // Find nearest char (TMP built-in)
         int charIndex = TMP_TextUtilities.FindNearestCharacter(text, mousePos, cam, true);
         if (charIndex == -1)
             return -1;
@@ -189,6 +182,10 @@ public class LetterEditor : MonoBehaviour
         if (wordIndex == -1)
             return -1;
 
+        Debug.Log("WordIndex: " + wordIndex + "");
+        TMP_WordInfo wordInfo = text.textInfo.wordInfo[wordIndex];
+        Debug.Log("Clicked word checker: " + wordInfo.GetWord());
+
         TMP_WordInfo word = text.textInfo.wordInfo[wordIndex];
 
         // Get word center in world space
@@ -204,7 +201,6 @@ public class LetterEditor : MonoBehaviour
 
         return (dist <= maxDistancePixels) ? wordIndex : -1;
     }
-    
 
 }
 

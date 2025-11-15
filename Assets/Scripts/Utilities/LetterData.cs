@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class LetterData
 {
     public string text;
-    public List<string> badWords;
-    public int filingIndex;
+    public List<string> tags;
 }
 
 [System.Serializable]
