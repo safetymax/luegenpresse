@@ -51,7 +51,7 @@ public class LetterEditor : MonoBehaviour
                 if(Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     Vector2 mousePos = Mouse.current.position.ReadValue();
-                    int charIndex = TMP_TextUtilities.FindIntersectingCharacter(text, mousePos, cam, true);
+                    int charIndex = GetNearestCharacterWithBuffer(text, mousePos, cam, 20.0f);
                     switch (FindObjectOfType<mouseCursorManager>().currentCursorIndex) // Different actions based on what cursor we have selected
                     {
                         case -1: {break;} // Normal cursor, cant use here
@@ -61,7 +61,7 @@ public class LetterEditor : MonoBehaviour
                                 if (charIndex != -1)
                                 {
                                     // get word index
-                                    int wordIndex = TMP_TextUtilities.FindIntersectingWord(text, mousePos, cam);
+                                    int wordIndex = GetNearestWordWithBuffer(text, mousePos, cam, 20.0f);
                                     //Debug.Log(wordIndex);
                                     if (wordIndex != -1 && FindObjectOfType<mouseCursorManager>().currentCursorIndex == 1) 
                                     {
@@ -124,5 +124,48 @@ public class LetterEditor : MonoBehaviour
 
         this.state = State.Idle;
     }
+
+    // HELPER FUNCTIONS
+    int GetNearestCharacterWithBuffer(TMP_Text text, Vector2 mousePos, Camera cam, float maxDistancePixels)
+    {
+        // Find nearest char (TMP built-in)
+        int charIndex = TMP_TextUtilities.FindNearestCharacter(text, mousePos, cam, true);
+        if (charIndex == -1)
+            return -1;
+
+        TMP_CharacterInfo c = text.textInfo.characterInfo[charIndex];
+
+        // Compute real screen position of the character center
+        Vector3 charWorldPos = (c.bottomLeft + c.topRight) * 0.5f;
+        Vector2 charScreenPos = RectTransformUtility.WorldToScreenPoint(cam, charWorldPos);
+
+        // Distance from mouse → character center
+        float dist = Vector2.Distance(mousePos, charScreenPos);
+
+        // Only accept if within threshold
+        return (dist <= maxDistancePixels) ? charIndex : -1;
+    }
+    int GetNearestWordWithBuffer(TMP_Text text, Vector2 mousePos, Camera cam, float maxDistancePixels)
+    {
+        int wordIndex = TMP_TextUtilities.FindNearestWord(text, mousePos, cam);
+        if (wordIndex == -1)
+            return -1;
+
+        TMP_WordInfo word = text.textInfo.wordInfo[wordIndex];
+
+        // Get word center in world space
+        TMP_CharacterInfo firstChar = text.textInfo.characterInfo[word.firstCharacterIndex];
+        TMP_CharacterInfo lastChar  = text.textInfo.characterInfo[word.lastCharacterIndex];
+
+        Vector3 bl = firstChar.bottomLeft;
+        Vector3 tr = lastChar.topRight;
+        Vector3 wordCenterWorld = (bl + tr) * 0.5f;
+        Vector2 wordCenterScreen = RectTransformUtility.WorldToScreenPoint(cam, wordCenterWorld);
+
+        float dist = Vector2.Distance(mousePos, wordCenterScreen);
+
+        return (dist <= maxDistancePixels) ? wordIndex : -1;
+    }
+
 }
 
