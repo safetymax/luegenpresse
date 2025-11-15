@@ -10,7 +10,6 @@ public class Letter
     private string letterContent;
     private List<string> tags;
     [SerializeField] private int filingMalus;
-    [SerializeField] private int blackingMalus;
 
     public Letter(LetterData data)
     {
@@ -31,25 +30,22 @@ public class Letter
         return this.letterContent;
     }
 
-
+    public List<string> getTags()
+    {
+        return this.tags;
+    }
     public int Evaluate()
     {
-        //TODO: check if files correctly
-        if (false)
-        {
-            //else return malus
-            return filingMalus;
-        }
-
         int wrongAmountBlacked = 0;
         foreach (String badWord in GameManager.Instance.badWordsGlobal)
         {
             wrongAmountBlacked += Regex.Matches(letterContent, badWord).Count; // wie oft das schlechte noch drinnen ist
         }
 
-        wrongAmountBlacked += Regex.Matches(letterContent, "€").Count; 
+        wrongAmountBlacked += Regex.Matches(letterContent, "€").Count; //words that were not bad but blacked by user anyways
 
-        return wrongAmountBlacked * blackingMalus;
+        //evaluate filing in combination with blacking score!
+        return GameManager.Instance.evaluateFilingOfLetter(this, wrongAmountBlacked);
     }
     public string toString()
     {
