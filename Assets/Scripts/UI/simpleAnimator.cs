@@ -4,7 +4,7 @@ public class simpleAnimator : MonoBehaviour
 {
     public void Start()
     {
-        playAnim(new Vector2(0, -500), Vector2.zero, 2f, AnimationType.EaseOut);
+        //playAnim(new Vector2(0, -500), Vector2.zero, 2f, AnimationType.EaseOut);
     }
     public void playAnim(Vector2 from, Vector2 to, float duration, AnimationType animType)
     {
