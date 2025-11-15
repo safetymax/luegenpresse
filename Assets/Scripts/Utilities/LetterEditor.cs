@@ -8,7 +8,7 @@ public class LetterEditor : MonoBehaviour
 {
     private enum State
     {
-        Idle,Opening,Correcting,Closing
+        Idle,Opening,Correcting,Closing,Evaluating
     }
 
     private Letter letter;
@@ -24,8 +24,8 @@ public class LetterEditor : MonoBehaviour
     private GameObject activeLetterObject;// Current spawned prefab instance
     private TextMeshProUGUI text;// TMP inside prefab
 
-    private int wc; // fuckass bug fix for taking care of fully blacked out letter
-    
+    private int wc; // fuckass bug fix for taking care of a fully blacked out letter
+    private int stampIdx;
     [SerializeField] private GameObject markingPrefab;
 
     void Start() {
@@ -53,8 +53,15 @@ public class LetterEditor : MonoBehaviour
             }
             case State.Opening:
             {
-                //TODO Play Animation here
-                state = State.Correcting;
+                // if we are the evaluation letter, we dont want to be able to correct
+                if(letter is ResultLetter)
+                    {
+                        state = State.Evaluating;
+                    }
+                    else
+                    {
+                        state = State.Correcting;
+                    }
                 break;
             }
             case State.Correcting:
@@ -127,11 +134,11 @@ public class LetterEditor : MonoBehaviour
                                     if (i == stampIndex) continue;
                                     mark.transform.Find("Mark"+i).gameObject.SetActive(false);
                                 }
+                                stampIdx = stampIndex;
                                 //get simpleAnimator of letter, play slide out to bottom animation and wait for it to finish
                                 activeLetterObject.GetComponent<simpleAnimator>().playAnim(activeLetterObject.transform.position, new Vector3(activeLetterObject.transform.position.x, -500, -10), 1f, AnimationType.EaseInOut);
-                                Invoke("SendLetterDelayed", 1f);
-                                this.state = State.Closing;
-                                //SendLetter(stampIndex);
+                                StartCoroutine(SendLetterDelayed());
+                                state = State.Closing;
                             }
                             break;
                     }
@@ -144,6 +151,12 @@ public class LetterEditor : MonoBehaviour
                 state = State.Idle;
                 break;
             }
+            case State.Evaluating:
+            {
+                // Optional: show letter, play animation, etc.
+                // But don't allow stamping/marking.
+                break;
+            }
         }
     }
     private void SpawnNewLetterObject(Letter newLetter)
@@ -151,6 +164,7 @@ public class LetterEditor : MonoBehaviour
         if (newLetter is ResultLetter)
         {
             activeLetterObject = Instantiate(evalLetterPrefab, letterParent);
+            state = State.Evaluating;
         }else{
             activeLetterObject = Instantiate(letterPrefab, letterParent);
         }
@@ -175,7 +189,7 @@ public class LetterEditor : MonoBehaviour
         if (activeLetterObject != null)
             Destroy(activeLetterObject);
 
-        this.state = State.Closing;
+        state = State.Closing;
     }
 
     // --- HELPER FUNCTIONS ---
@@ -225,9 +239,13 @@ public class LetterEditor : MonoBehaviour
 
     System.Collections.IEnumerator SendLetterDelayed()
     {
-        SendLetter(FindObjectOfType<mouseCursorManager>().stampIndex);
-        yield return null;
+        // Wait for 1 second before sending the letter
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Stamp index using for sending: " + stampIdx);
+        SendLetter(stampIdx);
     }
+
 
     public void CloseActiveLetter()
     {
