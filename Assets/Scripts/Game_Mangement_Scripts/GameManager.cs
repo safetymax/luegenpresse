@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     private List<string> positiveTags= new List<string>{"positiv"}; // global list of positive tags
 
     // Variables to report to player after each day
-    private int wordsWronglyBlackedOrMissed;
-    private int wrongFilingCount;
+    private int wordsWronglyBlackedOrMissed=0;
+    private int wrongFilingCount = 0;
 
     private void Awake() {
         if(Instance!=null && Instance != this)
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         this.tagSet = tagSetTemp;
         changeDay();
     }
-    private void changeDay()
+    public void changeDay()
     {
         this.currentDayIndex++;
         if(currentDayIndex == 5)
@@ -98,15 +98,18 @@ public class GameManager : MonoBehaviour
     }
     public void evaluateDay()
     {
-        Debug.Log("EVALUATING DAY");
+        Debug.Log("EVALUATING");
         // check if we failed or not
-        if(this.currentScore < 100)
+        if(this.currentScore < 30)
         {
             // failed cause of bad score
             Application.Quit();
         }
-        // we can continue to next day
-        changeDay();
+        // add letter to acknowledge scores
+        ResultLetter resultLetter = new ResultLetter(wordsWronglyBlackedOrMissed, wrongFilingCount);
+        lettersOfTheDay.Add(resultLetter);
+        //continue to next day if we acknoledge
+        // we do this by calling changeDay(); on the button click on the eval letter!
     }
     private void Update() {
         timeLeft -= Time.deltaTime;
@@ -274,5 +277,11 @@ public class GameManager : MonoBehaviour
             }
         }
             
+    }
+
+
+    public int getTotalScore()
+    {
+        return totalScore;
     }
 }

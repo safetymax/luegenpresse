@@ -18,6 +18,8 @@ public class LetterEditor : MonoBehaviour
 
     [Header("Letter Prefab References")]
     [SerializeField] private GameObject letterPrefab;
+    [SerializeField] private GameObject evalLetterPrefab;
+
     [SerializeField] private Transform letterParent;
     private GameObject activeLetterObject;// Current spawned prefab instance
     private TextMeshProUGUI text;// TMP inside prefab
@@ -146,8 +148,12 @@ public class LetterEditor : MonoBehaviour
     }
     private void SpawnNewLetterObject(Letter newLetter)
     {
-
-        activeLetterObject = Instantiate(letterPrefab, letterParent);
+        if (newLetter is ResultLetter)
+        {
+            activeLetterObject = Instantiate(evalLetterPrefab, letterParent);
+        }else{
+            activeLetterObject = Instantiate(letterPrefab, letterParent);
+        }
         //animate letter to slide from -500 to 0 y position
         activeLetterObject.GetComponent<simpleAnimator>().playAnim(new Vector3(0, -500, -10), new Vector3(0, 0, -10), 1f, AnimationType.EaseInOut);
         text = activeLetterObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -221,6 +227,14 @@ public class LetterEditor : MonoBehaviour
     {
         SendLetter(FindObjectOfType<mouseCursorManager>().stampIndex);
         yield return null;
+    }
+
+    public void CloseActiveLetter()
+    {
+        if (activeLetterObject != null)
+            Destroy(activeLetterObject);
+
+        state = State.Idle;
     }
 
 }
