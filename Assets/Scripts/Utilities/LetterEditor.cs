@@ -43,11 +43,12 @@ public class LetterEditor : MonoBehaviour
         // TODO: Remove once gamemanager is fully integrated for all states
         this.state = State.Idle;
         StringBuilder sbbw = new StringBuilder();
-        foreach (string bw in GameManager.Instance.GetCurrentBadWords())
+        foreach (string bw in GameManager.Instance.GetDailyBadWords())
         {
             sbbw.Append(bw+ ", ");
         }
         badWordsNote.text = sbbw.ToString();
+        
         
         tagsNote.text = GameManager.Instance.GetSupervisorTags().First();
         
