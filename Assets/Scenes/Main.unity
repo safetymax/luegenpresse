@@ -1461,6 +1461,9 @@ MonoBehaviour:
   evalLetterPrefab: {fileID: 8147068302116197179, guid: 553d4f35c44694178acab0146d6c6640, type: 3}
   letterParent: {fileID: 963454361}
   markingPrefab: {fileID: 6452380840036512341, guid: 710a104f411c0f54fb8672062cbdfa92, type: 3}
+  paperSound: {fileID: 8300000, guid: a5e98e0cd4736df4bb6d4947e2e4d675, type: 3}
+  markerSound: {fileID: 8300000, guid: d5690ab04001ee226ad88a1a66f5e8e2, type: 3}
+  stampSound: {fileID: 8300000, guid: c096e73e5887c57b08eedc87499da6a3, type: 3}
 --- !u!4 &1220093654
 Transform:
   m_ObjectHideFlags: 0
@@ -1913,6 +1916,7 @@ GameObject:
   - component: {fileID: 1808009718}
   - component: {fileID: 1808009717}
   - component: {fileID: 1808009716}
+  - component: {fileID: 1808009720}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: MainCamera
@@ -2054,6 +2058,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1808009720
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808009715}
+  m_Enabled: 1
 --- !u!1 &1855048167
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,10 @@ public class LetterEditor : MonoBehaviour
     private int stampIdx;
     [SerializeField] private GameObject markingPrefab;
 
+    [SerializeField] private AudioClip paperSound;
+    [SerializeField] private AudioClip markerSound;
+    [SerializeField] private AudioClip stampSound;
+
     void Start() {
         // TODO: Remove once gamemanager is fully integrated for all states
         this.state = State.Idle;
@@ -114,6 +118,9 @@ public class LetterEditor : MonoBehaviour
                                                 //replacing word with "$" characters
                                                 //TODO: add "€" for wrong words
                                                 Debug.Log("Replacing word");
+                                                //play marker sound
+                                                AudioSource.PlayClipAtPoint(markerSound, Camera.main.transform.position);
+
                                                 int startIndex = wordInfo.firstCharacterIndex;
                                                 int length = wordInfo.characterCount;
                                                 string newText = text.text;
@@ -142,6 +149,8 @@ public class LetterEditor : MonoBehaviour
                                 Debug.Log("clicked in letter");
                                 //spawn stamp and send
                                 GameObject mark = Instantiate<GameObject>(markingPrefab, activeLetterObject.transform);
+                                //play stamp sound
+                                AudioSource.PlayClipAtPoint(stampSound, Camera.main.transform.position);
                                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
                                 mouseWorldPos.z = -15f;
                                 mark.transform.position = mouseWorldPos;
@@ -184,6 +193,8 @@ public class LetterEditor : MonoBehaviour
         }else{
             activeLetterObject = Instantiate(letterPrefab, letterParent);
         }
+        // Play paper sound
+        AudioSource.PlayClipAtPoint(paperSound, Camera.main.transform.position);
         //animate letter to slide from -500 to 0 y position
         activeLetterObject.GetComponent<simpleAnimator>().playAnim(new Vector3(0, -500, -10), new Vector3(0, 0, -10), 1f, AnimationType.EaseInOut);
         text = activeLetterObject.GetComponentInChildren<TextMeshProUGUI>();

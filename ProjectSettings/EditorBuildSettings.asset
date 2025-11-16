@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: 942d69cd2cf1bfeed8abafa5aae431f3
-  - enabled: 1
     path: Assets/Scenes/MenuScenes/MainMenuScene.unity
     guid: ad7ef2ee65cfa4621bb60b1ed59eeb00
   - enabled: 1
@@ -23,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MidDayDialogScene.unity
     guid: 42ad4f14d00e8482fb4042ef24d44e39
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 942d69cd2cf1bfeed8abafa5aae431f3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
