@@ -15,7 +15,7 @@ public class MainMenuController : MonoBehaviour
         Destroy(pointerArm.GetComponent<worldCursor>());
         swipingArm.GetComponent<simpleAnimator>().playAnim(new Vector3(500,-20,-15), new Vector3(-700, -20, -15), 2f, AnimationType.EaseInOut);
         //wait for 2 seconds and load main scene
-        Invoke("loadMainScene", 2f);
+        Invoke("loadMainScene", 2.5f);
     }
     private void loadMainScene()
     {
