@@ -38,7 +38,7 @@ public class MidDayDialogueManager : MonoBehaviour
                 SceneManager.LoadScene("InstructionScene");
                 break;
             default:
-                Application.Quit();
+                //Application.Quit();
                 break;
                 
         }

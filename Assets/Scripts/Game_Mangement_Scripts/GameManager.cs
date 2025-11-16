@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if(timeLeft < 0)
         {
-            Application.Quit();
+            //Application.Quit();
         }
     }
     public void updateScore(int score)
