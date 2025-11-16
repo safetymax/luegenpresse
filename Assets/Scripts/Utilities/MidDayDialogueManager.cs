@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class MidDayDialogueManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text dialogue;
+    [SerializeField] private AudioClip fogHornSound;
     
     StringBuilder sb;
     private void Awake()
@@ -18,9 +19,11 @@ public class MidDayDialogueManager : MonoBehaviour
         switch (GameManager.Instance.ending)
         {
             case -1:
+                AudioSource.PlayClipAtPoint(fogHornSound, Camera.main.transform.position);
                 sb.Append("Keep going like that. You will not be excepted if you make a single mistake!");
                 break;
             case 0:
+                AudioSource.PlayClipAtPoint(fogHornSound, Camera.main.transform.position);
                 sb.Append("YOU WORK LIKE A PEASANT! GET THE HELL OUT OF MY OFFICE!");
                 break;
             case 1:

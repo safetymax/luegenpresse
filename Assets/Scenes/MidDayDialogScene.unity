@@ -947,6 +947,7 @@ GameObject:
   - component: {fileID: 1098893054}
   - component: {fileID: 1098893053}
   - component: {fileID: 1098893052}
+  - component: {fileID: 1098893056}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: MainCamera
@@ -1088,6 +1089,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1098893056
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098893051}
+  m_Enabled: 1
 --- !u!1 &1565481081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidDayDialogueManager1
   dialogue: {fileID: 796259937}
+  fogHornSound: {fileID: 8300000, guid: 367ca407c0ae9f03c894f41f3aae1ae2, type: 3}
 --- !u!1 &1974679396
 GameObject:
   m_ObjectHideFlags: 0
