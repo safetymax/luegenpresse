@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private List<string> supervisorDailyTags; // picks new tags every day for letters to be filed to him
     private List<Letter> lettersOfTheDay;
     private List<string> currentBadWordList = new List<string>(); // contiously expanded with new bad words to black out (if we arent filing to supervisor ofc)
+    private List<string> dailyBadWords = new List<string>();
     public List<string> badWordsGlobal = new List<string>
     {
         "ehc",
@@ -94,9 +95,8 @@ public class GameManager : MonoBehaviour
         supervisorDailyTags.Add("Gus");
         Debug.Log("Supervisor chose: " + supervisorDailyTags[0]);
         // sv chooses bad words 
-        currentBadWordList.AddRange(
-            badWordsGlobal.OrderBy(_ => rnd.Next()).Take(3)
-        );
+        dailyBadWords = badWordsGlobal.OrderBy(_ => rnd.Next()).Take(3).ToList();
+        currentBadWordList.AddRange(dailyBadWords);
 
         lettersOfTheDay = LetterGenerator.Instance.generateLetters(6, dailyTags);  //letter generation
     }
@@ -290,9 +290,9 @@ public class GameManager : MonoBehaviour
         return supervisorDailyTags;
     }
 
-    public List<string> GetCurrentBadWords()
+    public List<string> GetDailyBadWords()
     {
-        return currentBadWordList;
+        return dailyBadWords;
     }
 
 

@@ -62,7 +62,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         sb.Append("\nNow add following words to the ones you black out:\n");
-        foreach (string bw in GameManager.Instance.GetCurrentBadWords())
+        foreach (string bw in GameManager.Instance.GetDailyBadWords())
         {
             sb.Append(bw + ", ");
         }
